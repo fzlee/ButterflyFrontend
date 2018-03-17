@@ -3,6 +3,11 @@
     <div class="row">
       <div class="col-md-3">
         <calender :date="article.create_time"></calender>
+        <div class="tagcloud">
+          <div class="tag" v-for="tag in splitTags(article.tags)" :key="tag">
+            <a href="'/search?tagname=' + encodeURIComponent(tagname)">{{tag}}</a>
+          </div>
+        </div>
       </div>
       <div class="col-md-9">
         <h2><a :href="'/pages/' + article.url">{{article.title}}</a></h2>
@@ -16,10 +21,12 @@
 
 <script>
 import Calender from '@/components/_pages/Calendar'
+import ArticleMixin from '@/mixins/ArticleMixin'
 
 export default {
   name: 'page-preview',
   props: ['article'],
+  mixins: [ArticleMixin],
   components: {
     Calender
   }

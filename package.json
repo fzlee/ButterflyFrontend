@@ -11,8 +11,10 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
     "bootstrap-vue": "^2.0.0-rc.2",
+    "moment": "^2.21.0",
     "spin": "^0.0.1",
     "vue": "^2.5.13",
+    "vue-markdown": "^2.2.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

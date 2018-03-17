@@ -10,7 +10,6 @@
 
 <script>
 function parseDate () {
-  console.log(this.date)
   let time = new Date(this.date)
   this.year = time.getYear()
   this.month = time.getMonth()

@@ -7,11 +7,58 @@ body {
 }
 
 .widget {
-  background-color: #fff;
+  background-color: $widgetbackground;
   padding: 15px;
   margin: 15px 10px;
   &:hover {
     background-color: #F8FCFE;
+  }
+}
+
+.tagcloud{
+  overflow: auto;
+  margin: 10px 0 0 0;
+  div{ 
+    float: left;
+    display:inline;
+    margin: 5px 8px 5px 0;
+  }
+  a{
+    padding: 4px 10px 3px;
+    font-size: 13px;
+    white-space: nowrap;
+    background: $baseblue;
+    color:#fff;
+    transition-duration: 0.3s;
+    box-shadow: 1px 2px 2px #888;
+    &:hover,&:focus{
+      background: $basecyan;
+      color:#fff;
+    }
+  }
+  a{
+    text-decoration: none;
+  }
+  clear:both;
+}
+
+@mixin rectbox(){
+  border-radius: 0px;
+  background-color: #fff;
+  border: 1px solid $widgetbackground;
+  clear:both;
+
+  padding: 8px;
+  margin: 8px;
+}
+
+.bigwidget{
+  @include rectbox();
+  word-wrap: break-word;
+  padding:15px;
+  img{
+    max-width: 100%;
+    max-height:100%;
   }
 }
 

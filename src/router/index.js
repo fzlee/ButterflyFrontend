@@ -1,6 +1,7 @@
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 import Pages from '@/components/index/Pages.vue'
+import Page from '@/components/index/Page.vue'
 
 
 let router = new Router({
@@ -12,6 +13,9 @@ let router = new Router({
     }, {
       path: '/',
       component: Pages
+    }, {
+      path: '/pages/:url',
+      component: Page
     }
   ]
 })
