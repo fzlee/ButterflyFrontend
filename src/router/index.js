@@ -1,21 +1,25 @@
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
 import Pages from '@/components/index/Pages.vue'
 import Page from '@/components/index/Page.vue'
+import Sidebar from '@/components/_partial/Sidebar.vue'
 
 
 let router = new Router({
   mode: 'history',
   routes: [
-    { 
-      path: '/helloworld', 
-      component: HelloWorld
-    }, {
+    {
       path: '/',
-      component: Pages
+      components: {
+        default: Pages,
+        sidebar: Sidebar
+      }
     }, {
       path: '/pages/:url',
-      component: Page
+      component: Page,
+      components: {
+        default: Page,
+        sidebar: Sidebar
+      }
     }
   ]
 })

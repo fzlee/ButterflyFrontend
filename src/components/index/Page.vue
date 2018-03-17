@@ -1,8 +1,7 @@
 <template>
-  <div class="row">
-    <div class="col-md-9">
-      <div class="bigwidget">
-        <article v-if="article">
+    <div class="col-md-9 maincolumn" >
+      <div class="bigwidget" v-if="article">
+        <article>
           <h3><router-link :to="'/pages/' + article.url">{{article.title}}</router-link></h3>
           <div>博主创建于{{getCreateTime(article.create_at)}}</div>
           <div class="tagcloud">
@@ -24,11 +23,6 @@
         <p>本文地址：<router-link :to="getArticleURL()">{{getArticleURL()}}</router-link></p>
       </div>
     </div>
-
-    <div class="operation">
-      
-    </div>
-  </div>
 </template>
 
 <script>

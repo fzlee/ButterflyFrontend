@@ -4,14 +4,96 @@
 
 body {
   background-color: #eee;
+  .maincolumn {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
+@mixin rectbox(){
+  border-radius: 0px;
+  background-color: #fff;
+  border: 1px solid $widgetbackground;
+  clear:both;
+
+  @media (max-width: $screen-sm-min) {
+    padding: 8px;
+    margin: 8px;
+  }
+  @media (min-width: $screen-sm-min){
+    padding: 15px;
+    margin: 15px 10px;
+  }
+}
+
+// widget
 .widget {
   background-color: $widgetbackground;
   padding: 15px;
   margin: 15px 10px;
   &:hover {
     background-color: #F8FCFE;
+  }
+  @include rectbox();
+  word-wrap: break-word;
+  strong{
+    font-size: 14px;
+    display:inline-block;
+    line-height: 20px;
+    font-weight: normal;
+
+    @media (max-width: $screen-sm-min) {
+      margin: -17px 0px 0px -9px;
+    }
+    @media (min-width: $screen-sm-min){
+      margin: -31px 0px 0px -16px;
+    }
+    padding: 3px 15px 4px 15px;
+    vertical-align: middle;
+    color: #fff;
+  }
+  &.announcement strong{
+    background-color: $baseblue;
+    border: 0px solid $baseblue;
+  }
+  &.announcement:hover{
+    border: 1px solid $baseblue;
+  }
+
+  &.announcement .announcebody{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+  &.tags strong{
+    background-color: $basered;
+    border: 0px solid $basered;
+  }
+  &.tags:hover{
+    border: 1px solid $basered;
+  }
+  &.links strong{
+    background-color: $basegreen;
+    border: 0px solid $basegreen;
+  }
+  &.links:hover{
+    border: 1px solid $basegreen;
+  }
+  &.links ul{
+    margin: 10px;
+    padding: 0px;
+    list-style:none;
+  }
+
+  &.comments strong{
+    background-color: $baseorange;
+    border: 0px solid $baseorange;
+  }
+  &.comments:hover{
+    border: 1px solid $baseorange;
+  }
+  &.outline:hover{
+    background-color: $outlinehover;
   }
 }
 
@@ -42,16 +124,6 @@ body {
   clear:both;
 }
 
-@mixin rectbox(){
-  border-radius: 0px;
-  background-color: #fff;
-  border: 1px solid $widgetbackground;
-  clear:both;
-
-  padding: 8px;
-  margin: 8px;
-}
-
 .bigwidget{
   @include rectbox();
   word-wrap: break-word;
@@ -61,7 +133,20 @@ body {
     max-height:100%;
   }
 }
-
+/*recent comment field*/
+.comments{
+  .c-list{
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .c-meta{
+      color:#aaa;
+      margin-top: 8px;
+  }
+  .c-content{
+    padding:3px 10px;
+  }
+}
 
 /*calendar widget*/
 $dot-radius:8px;

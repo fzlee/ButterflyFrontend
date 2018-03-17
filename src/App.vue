@@ -3,7 +3,10 @@
     <div class="main-body">
       <navbar></navbar>
       <div class="container main-content">
-        <router-view></router-view>
+        <div class="row">
+          <router-view></router-view>
+          <router-view name="sidebar"></router-view>
+        </div>
       </div>
     </div>
   </div>

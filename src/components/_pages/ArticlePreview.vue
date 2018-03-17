@@ -12,7 +12,7 @@
       <div class="col-md-9">
         <h2><router-link :to="'/pages/' + article.url">{{article.title}}</router-link></h2>
         <hr>
-        <p>{{article.content.slice(0, 200)}}</p>
+        <p>{{article.content.slice(0, 200)}}...</p>
         <div class="float-right"><router-link :to="'/pages/' + article.url">阅读全文&gt;&gt;&gt;</router-link></div>
       </div>
     </div>

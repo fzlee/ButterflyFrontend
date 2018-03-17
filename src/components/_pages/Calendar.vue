@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 function parseDate () {
-  let time = new Date(this.date)
-  this.year = time.getYear()
-  this.month = time.getMonth()
-  this.day = time.getDay()
+  let time = moment(this.date)
+  this.year = time.format("YYYY")
+  this.month = time.format("MMMM")
+  this.day = time.format("DD")
 }
 
 export default {

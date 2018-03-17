@@ -1,11 +1,8 @@
 <template>
-  <div class="row">
-    <div class="col-md-9">
-      <div v-for="article in articles" :key="article.url">
-        <article-preview :article="article"></article-preview>  
-      </div>
+  <div class="col-md-9 maincolumn">
+    <div v-for="article in articles" :key="article.url">
+      <article-preview :article="article"></article-preview>  
     </div>
-    <div class="col-md-3">asas</div>
   </div>
 </template>
 
