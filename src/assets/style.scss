@@ -1,3 +1,93 @@
 @import "_variables.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
+@import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
+
+body {
+  background-color: #eee;
+}
+
+.widget {
+  background-color: #fff;
+  padding: 15px;
+  margin: 15px 10px;
+  &:hover {
+    background-color: #F8FCFE;
+  }
+}
+
+
+/*calendar widget*/
+$dot-radius:8px;
+$dot-left:$dot-radius;
+$dot-top:12px;
+$dot-bottom:$dot-top;
+$dotbar-left:-6px;
+$dotbar-width:16px;
+$dot-bar-height:$dot-radius/2;
+
+.calendar{
+  margin:1em 10px 10px 0;
+  float:left;
+  width:95%;
+  background:#428bca;
+  
+  text-align:center;
+  border-radius:0px;    
+  position:relative;
+  box-shadow:0 2px 2px #888;
+
+  &:before,&:after{
+  content:'';
+  float:left;
+  position:absolute;
+  left:$dot-left;    
+  width:$dot-radius;
+  height:$dot-radius;
+  background:#428bca;
+  z-index:1;
+  border-radius:$dot-radius;
+  box-shadow:0 2px 2px #888;
+  }
+  &:before{
+    top:$dot-radius+2px;
+  }
+  &:after{
+    bottom: $dot-radius+2px;
+  }
+
+  .day:before, .day:after{
+    content:'';
+  float:left;
+  position:absolute;
+  left:$dotbar-left;    
+  width:14px;
+  height:4px;
+  background:#ccc;
+  z-index:2;
+  border-radius:2px;
+  }
+.day{
+  padding-left: 15px;
+  float:left;
+  width:40%;
+  background:#fff;
+  color:#428bca;
+  font:bold 30px/60px "Arial Black",Arial, Helvetica, sans-serif; 
+}
+.month-year{
+  display:inline;
+  color: #fff;
+}
+.year{
+  font:bold 15px/30px "Arial Black",Arial, Helvetica, sans-serif;
+}
+.month{
+  font:bold 11px/30px "Arial Black",Arial, Helvetica, sans-serif;
+}
+  .day:before{
+    top:$dot-top;
+  }
+  .day:after{
+    bottom:$dot-bottom;
+  }
+}

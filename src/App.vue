@@ -26,6 +26,6 @@ export default {
 @import './assets/style.scss';
 
 .main-content {
-  margin-top: 20px
+  margin-top: 55px
 }
 </style>

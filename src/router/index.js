@@ -10,7 +10,7 @@ let router = new Router({
       path: '/helloworld', 
       component: HelloWorld
     }, {
-      path: '/pages',
+      path: '/',
       component: Pages
     }
   ]
