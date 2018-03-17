@@ -9,5 +9,16 @@ $basefont:#555;
 $outlinehover:#F8FCFE;
 
 $screen-sm-min: 768px;
-
+// change link color
 $link-color: $baseblue;
+// change theme color
+$primary: $baseblue;
+
+// no radius
+$border-radius:               0;
+$border-radius-lg:            0;
+$border-radius-sm:            0;
+
+//navbar 
+$navbar-padding-y: 0.1rem;
+$navbar-padding-x: 0.5rem;

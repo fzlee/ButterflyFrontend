@@ -3,14 +3,20 @@
     <div v-for="article in articles" :key="article.url">
       <article-preview :article="article"></article-preview>  
     </div>
+    <div class="row">
+      <div class="mx-auto">
+        <pagination baseURL="" :has-next="articles && articles.length" v-on:pagination="this.loadData"></pagination>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import ArticlePreview from '@/components/_pages/ArticlePreview.vue'
+import Pagination from '@/components/_pages/Pagination.vue'
 
 function loadData () {
-  this.$http.get('/api/pages').then((response) => {
+  this.$http.get('/api/pages/preview?page=' + this.$route.query.page || 1).then((response) => {
     this.articles = response.data.data
   })
 }
@@ -29,7 +35,8 @@ export default {
     this.loadData()
   },
   components: {
-    ArticlePreview
+    ArticlePreview,
+    Pagination
   }
 }
 </script>
