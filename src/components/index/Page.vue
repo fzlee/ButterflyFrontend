@@ -3,11 +3,11 @@
     <div class="col-md-9">
       <div class="bigwidget">
         <article v-if="article">
-          <h3><a :href="'/pages/' + article.url">{{article.title}}</a></h3>
+          <h3><router-link :to="'/pages/' + article.url">{{article.title}}</router-link></h3>
           <div>博主创建于{{getCreateTime(article.create_at)}}</div>
           <div class="tagcloud">
             <div class="tag">
-              <a href="'/search?tagname=' + encodeURIComponent(tagname)" v-for="(tagname, index) of this.splitTags(article.tags)" :key="index">{{tagname}}</a>
+              <router-link :to="'/search?tagname=' + encodeURIComponent(tagname)" v-for="(tagname, index) of this.splitTags(article.tags)" :key="index">{{tagname}}</router-link>
             </div>
           </div>
           <hr>
@@ -16,9 +16,18 @@
             <vue-markdown>{{article.content}}</vue-markdown>
           </p>
         </article>
+        <hr>
+        操作：评论 <span v-if="true">| <router-link :to="'/manager/pages/' + article.url"> 编辑 </router-link></span> 
+      </div>
+      <div class="bigwidget" v-if="article && article.is_original">
+        <p>除非注明，本博客文章均为原创，禁止出于商业目的全文转载。个人转载时，请以链接形式标明本文地址。</p>
+        <p>本文地址：<router-link :to="getArticleURL()">{{getArticleURL()}}</router-link></p>
       </div>
     </div>
-    
+
+    <div class="operation">
+      
+    </div>
   </div>
 </template>
 
@@ -40,6 +49,10 @@ function getCreateTime (date) {
   return moment(date).format('YYYY年MM月DD日')
 }
 
+function getArticleURL() {
+  return location.origin + location.pathname
+}
+
 export default {
   name: 'page',
   data () {
@@ -51,7 +64,8 @@ export default {
   mixins: [ArticleMixin],
   methods: {
     loadData,
-    getCreateTime
+    getCreateTime,
+    getArticleURL
   },
   created () {
     this.loadData()

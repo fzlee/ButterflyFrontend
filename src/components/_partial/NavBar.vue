@@ -2,13 +2,13 @@
   <div>
     <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-      <b-navbar-brand href="/">{{ brand_name }}</b-navbar-brand>
+      <b-navbar-brand to="/">{{ brand_name }}</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item href="/pages/about">关于</b-nav-item>
-          <b-nav-item href="#">RSS</b-nav-item>
-          <b-nav-item href="#">工具</b-nav-item>
-          <b-nav-item href="/manager">Admin</b-nav-item>
+          <b-nav-item to="/pages/about">关于</b-nav-item>
+          <b-nav-item to="#">RSS</b-nav-item>
+          <b-nav-item to="#">工具</b-nav-item>
+          <b-nav-item to="/manager">Admin</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
