@@ -5,10 +5,10 @@
       <b-navbar-brand to="/">{{ brand_name }}</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item to="/pages/about">关于</b-nav-item>
+          <b-nav-item to="/articles/about">关于</b-nav-item>
           <b-nav-item to="#">RSS</b-nav-item>
           <b-nav-item to="#">工具</b-nav-item>
-          <b-nav-item to="/manager">Admin</b-nav-item>
+          <b-nav-item to="/manager/articles">Admin</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->

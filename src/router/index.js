@@ -1,25 +1,36 @@
 import Router from 'vue-router'
-import Pages from '@/components/index/Pages.vue'
-import Page from '@/components/index/Page.vue'
-import Sidebar from '@/components/_partial/Sidebar.vue'
-
+import Index from '@/components/index/Index'
+import Articles from '@/components/index/Articles'
+import Article from '@/components/index/Article'
+import Manager from '@/components/manager/Manager'
+import ManagerArticles from '@/components/manager/Articles'
 
 let router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
-      components: {
-        default: Pages,
-        sidebar: Sidebar
-      }
-    }, {
-      path: '/pages/:url',
-      component: Page,
-      components: {
-        default: Page,
-        sidebar: Sidebar
-      }
+      component: Index, 
+      children: [
+        {
+          path: '',
+          component: Articles
+        },
+        {
+          path: 'articles/:url',
+          component: Article
+        }
+      ], 
+    },
+    {
+      path: '/manager',
+      component: Manager,
+      children: [
+        {
+          path: 'articles',
+          component: ManagerArticles
+        }
+      ]      
     }
   ]
 })

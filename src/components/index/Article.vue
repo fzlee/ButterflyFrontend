@@ -2,7 +2,7 @@
     <div class="col-md-9 maincolumn" >
       <div class="bigwidget" v-if="article">
         <article>
-          <h3><router-link :to="'/pages/' + article.url">{{article.title}}</router-link></h3>
+          <h3><router-link :to="`/articles/${article.url}`">{{article.title}}</router-link></h3>
           <div>博主创建于{{getCreateTime(article.create_at)}}</div>
           <div class="tagcloud">
             <div class="tag">
@@ -16,7 +16,7 @@
           </p>
         </article>
         <hr>
-        操作：评论 <span v-if="true">| <router-link :to="'/manager/pages/' + article.url"> 编辑 </router-link></span> 
+        操作：评论 <span v-if="true">| <router-link :to="`/manager/articles/${article.url}`"> 编辑 </router-link></span> 
       </div>
       <div class="bigwidget" v-if="article && article.is_original">
         <p>除非注明，本博客文章均为原创，禁止出于商业目的全文转载。个人转载时，请以链接形式标明本文地址。</p>
@@ -33,7 +33,7 @@ import VueMarkdown from 'vue-markdown'
 function loadData () {
   let url = this.$route.params.url
 
-  this.$http.get('/api/pages/' + url).then((response) => {
+  this.$http.get('/api/articles/' + url).then((response) => {
     this.article = response.data.data
     this.tags = this.article.tags.split(',')
   })
@@ -48,7 +48,7 @@ function getArticleURL() {
 }
 
 export default {
-  name: 'page',
+  name: 'article',
   data () {
     return {
       'article': null,

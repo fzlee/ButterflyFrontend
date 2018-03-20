@@ -3,10 +3,7 @@
     <div class="main-body">
       <navbar></navbar>
       <div class="container main-content">
-        <div class="row">
-          <router-view></router-view>
-          <router-view name="sidebar"></router-view>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -14,12 +11,10 @@
 
 <script>
 import Navbar from '@/components/_partial/NavBar.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld, 
     Navbar
   }
 }
@@ -29,6 +24,6 @@ export default {
 @import './assets/style.scss';
 
 .main-content {
-  margin-top: 55px
+  margin-top: 40px
 }
 </style>

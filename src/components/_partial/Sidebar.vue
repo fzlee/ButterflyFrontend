@@ -1,16 +1,16 @@
 <template>
-  <div class="col-md-3 maincolumn">
+  <div class="col-md-3 maincolumn" >
     <div class="sidebar">
-      <div class="announcement widget pb-4">
+      <div class="announcement widget pb-4" v-if="announcement">
         <strong>公告</strong>
         <div class="announcebody">
           <div>{{announcement.content}}...</div>
-          <div class="float-right"><router-link :to="'/pages/' + announcement.url">查看&gt;&gt;</router-link></div>
+          <div class="float-right"><router-link :to="`/articles/${announcement.url}`">查看&gt;&gt;</router-link></div>
         </div>
         
       </div>
 
-      <div class="tags widget">
+      <div class="tags widget" v-if="tags">
         <strong>标签</strong>
         <div class="tagcloud">
           <div v-for="(tag, index) in tags" :key="index" class="tag">
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="comments widget">
+      <div class="comments widget" v-if="comments">
         <strong>最近评论</strong>
         <div v-for="(comment, index) in comments" :key="index" class="c-list">
           <div class="c-meta">
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div class="links widget">
+      <div class="links widget" v-if="links">
         <strong>友情链接</strong>
         <ul>
           <li v-for="(link, index) in links" :key="index">
@@ -46,7 +46,7 @@
 import moment from 'moment'
 
 function loadData () {
-  this.$http.get('/api/pages/sidebar').then((response) => {
+  this.$http.get('/api/articles/sidebar').then((response) => {
     this.tags = response.data.data.tags
     this.comments = response.data.data.comments
     this.links = response.data.data.links

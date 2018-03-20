@@ -13,7 +13,6 @@
 
 <script>
 function jumpToPage (delta) {
-  console.log('sssssssssssss')
   // 到头了，不要跳转
   if (!this.hasNext && delta > 1) {
     return
