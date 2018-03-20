@@ -4,6 +4,7 @@ import Articles from '@/components/index/Articles'
 import Article from '@/components/index/Article'
 import Manager from '@/components/manager/Manager'
 import ManagerArticles from '@/components/manager/Articles'
+import Editor from '@/components/manager/Editor'
 
 let router = new Router({
   mode: 'history',
@@ -29,6 +30,9 @@ let router = new Router({
         {
           path: 'articles',
           component: ManagerArticles
+        },{
+          path: 'editor',
+          component: Editor
         }
       ]      
     }

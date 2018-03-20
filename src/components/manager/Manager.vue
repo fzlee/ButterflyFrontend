@@ -1,18 +1,25 @@
 <template>
-  <div>
-    <b-navbar toggleable="md" type="dark" variant="dark">
-      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-      <b-navbar-brand to="/manager/articles">管理后台</b-navbar-brand>
-      <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav>
-          <b-nav-item to="/manager/articles">文章管理</b-nav-item>
-          <b-nav-item href="#">编辑文章</b-nav-item>
-          <b-nav-item href="#">评论</b-nav-item>
-          <b-nav-item href="#">链接</b-nav-item>
-          <b-nav-item href="#">文件</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-    <router-view></router-view>
+  <div style="margin-top: 40px">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="mx-auto">
+        <b-navbar toggleable="md" type="dark" variant="dark">
+          <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+          <b-navbar-brand to="/manager/articles">管理后台</b-navbar-brand>
+          <b-collapse is-nav id="nav_collapse">
+            <b-navbar-nav class="justify-content-center">
+              <b-nav-item to="/manager/articles">文章管理</b-nav-item>
+              <b-nav-item to="/manager/editors/markdowneditor">编辑文章(Markdown)</b-nav-item>
+              <b-nav-item to="/manager/editors/htmleditor">编辑文章(HTML)</b-nav-item>
+              <b-nav-item to="#">评论</b-nav-item>
+              <b-nav-item to="#">链接</b-nav-item>
+              <b-nav-item to="#">文件</b-nav-item>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+        </div>
+      </div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>

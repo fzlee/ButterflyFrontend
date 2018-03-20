@@ -2,9 +2,7 @@
   <div id="app">
     <div class="main-body">
       <navbar></navbar>
-      <div class="container main-content">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
