@@ -8,14 +8,16 @@
           <b-nav-item to="/articles/about">关于</b-nav-item>
           <b-nav-item to="#">RSS</b-nav-item>
           <b-nav-item to="#">工具</b-nav-item>
-          <b-nav-item to="/manager/articles">Admin</b-nav-item>
+          <b-nav-item to="/manager/articles">
+            <span v-if="hasLogin()">Admin</span>
+            <span v-else>&nbsp;</span>
+          </b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+            <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="文本搜索" v-model="searchContent" @keydown.enter.prevent.native="searchWithGoogle"></b-form-input>
           </b-nav-form>
         </b-navbar-nav>
       </b-collapse>
@@ -24,12 +26,26 @@
 </template>
 
 <script>
+import {hasLogin} from '@/services/auth'
+
+function searchWithGoogle () {
+  const query = `site:${location.host} ${this.searchContent}`
+  let url = `https://www.google.com.hk/search?q=${encodeURIComponent(query)}`
+  window.open(url, '_blank').focus()
+}
+
+
 export default {
   name: 'navbar',
   data () {
     return {
-      brand_name: 'ifconfiger'
+      brand_name: 'ifconfiger',
+      searchContent: ''
     }
+  },
+  methods: {
+    searchWithGoogle,
+    hasLogin
   }
 }
 </script>

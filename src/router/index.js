@@ -2,9 +2,11 @@ import Router from 'vue-router'
 import Index from '@/components/index/Index'
 import Articles from '@/components/index/Articles'
 import Article from '@/components/index/Article'
+import Login from '@/components/index/Login'
 import Manager from '@/components/manager/Manager'
 import ManagerArticles from '@/components/manager/Articles'
 import Editor from '@/components/manager/Editor'
+import {hasLogin} from '@/services/auth'
 
 let router = new Router({
   mode: 'history',
@@ -20,6 +22,10 @@ let router = new Router({
         {
           path: 'articles/:url',
           component: Article
+        },
+        {
+          path: 'login',
+          component: Login
         }
       ], 
     },
@@ -42,5 +48,14 @@ let router = new Router({
     }
   ]
 })
+
+router.beforeEach(function (to, from, next) {
+  if (/^\/manager/.test(to.fullPath) && !hasLogin()) {
+    next({path: '/login', query: {url: to.fullPath}})
+  } else {
+    next()
+  }
+})
+
 
 export default router

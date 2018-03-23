@@ -22,3 +22,19 @@
     </div>
   </div>
 </template>
+
+
+<script>
+function doLogout () {
+  this.$http.post('/api/logout').then(() => {
+    location.reload()
+  })
+}
+
+export default {
+  name: 'navbar',
+  methods: {
+    doLogout
+  }
+}
+</script>

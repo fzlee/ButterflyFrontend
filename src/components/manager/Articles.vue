@@ -11,6 +11,7 @@
           <th>允许评论</th>
           <th>编辑器</th>
           <th>密码</th>
+          <th>操作</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,7 @@
           <td>{{article.allow_comment? '允许评论': '禁止评论'}}</td>
           <td>{{article.editor}}</td>
           <td>{{article.need_key? '密码访问': '公开访问'}}</td>
+          <td><button class="btn btn-sm btn-primary" @click="deleteArticle(article)">删除</button></td>
         </tr>
       </tbody>
     </table>
@@ -48,6 +50,17 @@ function loadData () {
   })
 }
 
+function deleteArticle (article) {
+  const ok = confirm(`确定删除${article.title}吗`)
+  if (!ok) {
+    return
+  }
+
+  this.$http.delete(`/api/articles/${article.url}`).then(() => {
+    location.reload()
+  })
+}
+
 export default {
   data () {
     return {
@@ -59,7 +72,8 @@ export default {
   },
   methods: {
     loadData,
-    formatTime
+    formatTime,
+    deleteArticle
   },
   components: {
     Pagination
