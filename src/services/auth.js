@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
 function hasLogin () {
-  if (Cookies.get('g.token') === undefined) {
+  if (Cookies.get('b.token') === undefined) {
     return false
   }
   let user = getUser()
@@ -12,7 +12,7 @@ function hasLogin () {
 }
 
 function getUser () {
-  let content = Cookies.get('g.user')
+  let content = Cookies.get('b.user')
   return content ? JSON.parse(content) : null
 }
 

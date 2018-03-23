@@ -10,7 +10,7 @@
             <b-navbar-nav class="justify-content-center">
               <b-nav-item to="/manager/articles">文章管理</b-nav-item>
               <b-nav-item to="/manager/editor">编辑文章</b-nav-item>
-              <b-nav-item to="#">评论</b-nav-item>
+              <b-nav-item to="/manager/comments">评论</b-nav-item>
               <b-nav-item to="#">链接</b-nav-item>
               <b-nav-item to="#">文件</b-nav-item>
             </b-navbar-nav>
