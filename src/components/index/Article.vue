@@ -16,7 +16,7 @@
           </p>
         </article>
         <hr>
-        操作：评论 <span v-if="true">| <router-link :to="`/manager/articles/${article.url}`"> 编辑 </router-link></span> 
+        操作：评论 <span v-if="true">| <router-link :to="`/manager/editor?url=${article.url}`"> 编辑 </router-link></span> 
       </div>
       <div class="bigwidget" v-if="article && article.is_original">
         <p>除非注明，本博客文章均为原创，禁止出于商业目的全文转载。个人转载时，请以链接形式标明本文地址。</p>

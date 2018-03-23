@@ -23,7 +23,6 @@ http.interceptors.response.use(function (response) {
     return response
   }
 }, function (error) {
-  console.log(error)
   showFailedAlert(error)
   return Promise.reject(error)
 })

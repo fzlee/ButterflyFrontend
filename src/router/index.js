@@ -24,6 +24,10 @@ let router = new Router({
       ], 
     },
     {
+      path: '/page/:url',
+      redirect: '/articles/:url'
+    },
+    {
       path: '/manager',
       component: Manager,
       children: [
