@@ -8,6 +8,7 @@ import ManagerArticles from '@/components/manager/Articles'
 import Editor from '@/components/manager/Editor'
 import Comments from '@/components/manager/Comments'
 import Links from '@/components/manager/Links'
+import Medias from '@/components/manager/Medias'
 import {hasLogin} from '@/services/auth'
 
 let router = new Router({
@@ -51,6 +52,9 @@ let router = new Router({
         }, {
           path: 'links',
           component: Links
+        }, {
+          path: 'medias',
+          component: Medias
         }
       ]      
     }

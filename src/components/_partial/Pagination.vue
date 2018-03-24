@@ -19,7 +19,6 @@ function jumpToPage (delta) {
   }
 
   let targetPage = parseInt(this.currentPage) + delta
-  console.log(targetPage)
   if (targetPage >= 1) {
     this.$router.push({ 
       path: this.baseURL, 
