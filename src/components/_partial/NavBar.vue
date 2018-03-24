@@ -34,7 +34,6 @@ function searchWithGoogle () {
   window.open(url, '_blank').focus()
 }
 
-
 export default {
   name: 'navbar',
   data () {
@@ -49,3 +48,8 @@ export default {
   }
 }
 </script>
+
+<style>
+@import '../../../node_modules/tui-editor/dist/tui-editor-contents.min.css';
+@import '../../../node_modules/highlight.js/styles/github.css';
+</style>

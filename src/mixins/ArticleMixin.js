@@ -1,5 +1,5 @@
 function splitTags (tagString) {
-  let tags = tagString.split(',')
+  let tags = (tagString || '').split(',')
   let results = []
   tags.forEach(function (tag) {
     if (tag) {

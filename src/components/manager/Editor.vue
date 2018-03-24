@@ -96,7 +96,6 @@ function createEditor () {
     previewStyle: 'vertical',
     initialValue: this.article? this.article.content : ''
   })
-  window.editor = this.editor
 }
 
 function changeDropdown (group, menu) {
