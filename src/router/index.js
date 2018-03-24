@@ -7,6 +7,7 @@ import Manager from '@/components/manager/Manager'
 import ManagerArticles from '@/components/manager/Articles'
 import Editor from '@/components/manager/Editor'
 import Comments from '@/components/manager/Comments'
+import Links from '@/components/manager/Links'
 import {hasLogin} from '@/services/auth'
 
 let router = new Router({
@@ -47,6 +48,9 @@ let router = new Router({
         }, {
           path: 'comments',
           component: Comments
+        }, {
+          path: 'links',
+          component: Links
         }
       ]      
     }

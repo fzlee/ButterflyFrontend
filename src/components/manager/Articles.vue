@@ -28,7 +28,7 @@
           <td>{{article.allow_comment? '允许评论': '禁止评论'}}</td>
           <td>{{article.editor}}</td>
           <td>{{article.need_key? '密码访问': '公开访问'}}</td>
-          <td><button class="btn btn-sm btn-primary" @click="deleteArticle(article)">删除</button></td>
+          <td><button class="btn btn-sm btn-danger" @click="deleteArticle(article)">删除</button></td>
         </tr>
       </tbody>
     </table>
