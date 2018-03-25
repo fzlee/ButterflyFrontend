@@ -7,7 +7,10 @@
         <b-navbar-nav>
           <b-nav-item to="/articles/about">关于</b-nav-item>
           <b-nav-item href="/rss">RSS</b-nav-item>
-          <b-nav-item to="#">工具</b-nav-item>
+          <b-nav-item-dropdown text="工具">
+            <b-dropdown-item to="/tools/qrcode">二维码</b-dropdown-item>
+            <b-dropdown-item to="/tools/markdown">Markdown</b-dropdown-item>
+          </b-nav-item-dropdown>
           <b-nav-item to="/manager/articles">
             <span v-if="hasLogin()">Admin</span>
             <span v-else>&nbsp;</span>

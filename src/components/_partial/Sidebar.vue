@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-3 maincolumn" >
     <div class="sidebar">
-      <div class="announcement widget" v-if="announcement">
+      <div class="announcement widget" v-if="announcement && announcement.content">
         <strong>公告</strong>
         <div class="announcebody">
           <div>{{announcement.content}}...</div>

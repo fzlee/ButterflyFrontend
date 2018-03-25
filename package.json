@@ -13,6 +13,7 @@
     "bootstrap-vue": "^2.0.0-rc.2",
     "js-cookie": "^2.2.0",
     "moment": "^2.21.0",
+    "qrcode": "^1.2.0",
     "spin": "^0.0.1",
     "tui-editor": "^1.0.5",
     "vue": "^2.5.13",

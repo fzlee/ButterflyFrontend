@@ -4,6 +4,7 @@ import Articles from '@/components/index/Articles'
 import Article from '@/components/index/Article'
 import Login from '@/components/index/Login'
 import Search from '@/components/index/Search'
+import QRCode from '@/components/tools/QRCode'
 import Manager from '@/components/manager/Manager'
 import ManagerArticles from '@/components/manager/Articles'
 import Editor from '@/components/manager/Editor'
@@ -34,6 +35,10 @@ let router = new Router({
         {
           path: 'search',
           component: Search
+        }, 
+        {
+          path: 'tools/qrcode',
+          component: QRCode
         }
       ], 
     },
