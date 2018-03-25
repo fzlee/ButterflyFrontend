@@ -5,6 +5,7 @@ import Article from '@/components/index/Article'
 import Login from '@/components/index/Login'
 import Search from '@/components/index/Search'
 import QRCode from '@/components/tools/QRCode'
+import Markdown from '@/components/tools/Markdown'
 import Manager from '@/components/manager/Manager'
 import ManagerArticles from '@/components/manager/Articles'
 import Editor from '@/components/manager/Editor'
@@ -41,6 +42,10 @@ let router = new Router({
           component: QRCode
         }
       ], 
+    },
+    {
+      path: '/tools/markdown',
+      component: Markdown
     },
     {
       path: '/page/:url',

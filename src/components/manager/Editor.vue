@@ -56,6 +56,7 @@
 
 <script>
 import TuiEditor from 'tui-editor'
+import 'tui-editor/dist/tui-editor-extScrollSync.js'
 
 function initEditor() {
   if (this.$route.query.url) {
@@ -94,7 +95,8 @@ function createEditor () {
     initialEditType: this.editorType,
     height: '500px',
     previewStyle: 'vertical',
-    initialValue: this.article? this.article.content : ''
+    initialValue: this.article? this.article.content : '',
+    exts: ['scrollSync']
   })
 }
 
