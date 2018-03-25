@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr v-for="comment in comments" :key="comment.id">
-          <td><a href="`mailto:${comment.email}`">{{comment.nickname}}</a></td>
+          <td><a :href="`mailto:${comment.email}`">{{comment.nickname}}</a></td>
           <td>{{comment.ip}}</td>
           <td nowrap>{{formatTime(comment.create_time)}}</td>
           <td>

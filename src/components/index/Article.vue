@@ -1,7 +1,20 @@
 <template>
     <div class="col-md-9 maincolumn" >
       <div class="bigwidget">
-        <article>
+        <div class="mx-auto" v-if="article.need_key" style="width: 400px">
+          <div class="form-inline " >
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="password" 
+                class="form-control" 
+                id="password" 
+                placeholder="5-8位字母数字"
+                @keydown.enter.prevent="decryptArticle">
+            </div>
+            <button type="button" class="btn btn-primary mb-2" @click="decryptArticle">提交</button>
+          </div>
+        </div>
+
+        <article v-if="article">
           <h3><router-link :to="`/articles/${article.url}`">{{article.title}}</router-link></h3>
           <div>博主创建于{{getCreateTime(article.create_at)}}</div>
           <div class="tagcloud">
@@ -60,14 +73,19 @@ function renderContent (content) {
 
 function loadData () {
   let url = this.$route.params.url
+  if (this.$route.query.is_preview === 'true') {
+    url = `/api/articles/${url}`
+  } else {
+    url = `/api/articles/${url}/meta`
+  }
 
-  this.$http.get('/api/articles/' + url).then((response) => {
+  this.$http.get(url).then((response) => {
     this.article = response.data.data
     this.tags = this.article.tags.split(',')
     this.renderContent(this.article.content)
   })
 
-  this.$http.get(`/api/articles/${url}/comments`).then((response) => {
+  this.$http.get(`/api/articles/${this.$route.params.url}/comments`).then((response) => {
     this.comments = response.data.data
   })
 }
@@ -82,6 +100,16 @@ function getCreateTime (date) {
 
 function getArticleURL() {
   return location.origin + location.pathname
+}
+
+function decryptArticle () {
+  const password = document.querySelector("#password").value
+  this.$http.post(`/api/articles/${this.$route.params.url}/meta`, {
+    password: password
+  }).then((response) => {
+    this.article = response.data.data
+    this.renderContent(this.article.content)
+  })
 }
 
 export default {
@@ -103,7 +131,8 @@ export default {
     formatTime,
     renderContent,
     hasLogin,
-    showReplyModal
+    showReplyModal,
+    decryptArticle
   },
   mounted () {
     this.loadData()

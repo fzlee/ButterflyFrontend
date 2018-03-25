@@ -16,7 +16,7 @@ import ArticlePreview from '@/components/_articles/ArticlePreview.vue'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function loadData () {
-  this.$http.get('/api/articles/preview?page=' + this.$route.query.page || 1).then((response) => {
+  this.$http.get(`/api/articles/preview?page=${this.$route.query.page || 1}`).then((response) => {
     this.articles = response.data.data
   })
 }
