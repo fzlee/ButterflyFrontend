@@ -1,6 +1,9 @@
 .DS_Store
 node_modules
 /dist
+/serve
+/fab
+fabfile.py
 
 # local env files
 .env.local
