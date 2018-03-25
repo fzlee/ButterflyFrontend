@@ -3,6 +3,7 @@ import Index from '@/components/index/Index'
 import Articles from '@/components/index/Articles'
 import Article from '@/components/index/Article'
 import Login from '@/components/index/Login'
+import Search from '@/components/index/Search'
 import Manager from '@/components/manager/Manager'
 import ManagerArticles from '@/components/manager/Articles'
 import Editor from '@/components/manager/Editor'
@@ -29,6 +30,10 @@ let router = new Router({
         {
           path: 'login',
           component: Login
+        },
+        {
+          path: 'search',
+          component: Search
         }
       ], 
     },

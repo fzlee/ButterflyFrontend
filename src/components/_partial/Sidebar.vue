@@ -1,16 +1,15 @@
 <template>
   <div class="col-md-3 maincolumn" >
     <div class="sidebar">
-      <div class="announcement widget pb-4" v-if="announcement">
+      <div class="announcement widget" v-if="announcement">
         <strong>公告</strong>
         <div class="announcebody">
           <div>{{announcement.content}}...</div>
           <div class="float-right"><router-link :to="`/articles/${announcement.url}`">查看&gt;&gt;</router-link></div>
         </div>
-        
       </div>
 
-      <div class="tags widget" v-if="tags">
+      <div class="tags widget" v-if="tags && tags.length">
         <strong>标签</strong>
         <div class="tagcloud">
           <div v-for="(tag, index) in tags" :key="index" class="tag">
@@ -19,7 +18,7 @@
         </div>
       </div>
 
-      <div class="comments widget" v-if="comments">
+      <div class="comments widget" v-if="comments && comments.length">
         <strong>最近评论</strong>
         <div v-for="(comment, index) in comments" :key="index" class="c-list">
           <div class="c-meta">
@@ -30,7 +29,7 @@
         </div>
       </div>
 
-      <div class="links widget" v-if="links">
+      <div class="links widget" v-if="links && links.length">
         <strong>友情链接</strong>
         <ul>
           <li v-for="(link, index) in links" :key="index">

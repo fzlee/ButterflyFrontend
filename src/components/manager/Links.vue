@@ -34,7 +34,7 @@
       </thead>
       <tbody>
         <tr v-for="link in links" :key="link.id">
-          <td><a :href="link.href">{{link.name}}</a></td>
+          <td><a :href="link.href" target="_blank">{{link.name}}</a></td>
           <td>{{formatTime(link.create_time)}}</td>
           <td>{{link.description}}</td>
           <td>
