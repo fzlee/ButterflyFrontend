@@ -9,7 +9,7 @@ import router from '@/router/index'
 Vue.use(BootstrapVue)
 Vue.use(Router)
 Vue.use(VueAnalytics, {
-  id: ['UA-39931077-2']，
+  id: ['UA-39931077-2'],
   router
 })
 
