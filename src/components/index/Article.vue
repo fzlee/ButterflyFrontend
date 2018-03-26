@@ -116,7 +116,7 @@ export default {
   name: 'one-article',
   data () {
     return {
-      'article': {},
+      'article': null,
       'tags': [],
       'comments': '',
       'url': this.$route.params.url,
