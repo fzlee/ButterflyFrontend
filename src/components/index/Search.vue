@@ -17,7 +17,6 @@
         <pagination baseURL="" :has-next="articles && articles.length > 0" v-on:pagination="doSearch"></pagination>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -54,6 +53,13 @@ export default {
   components : {
     ArticlePreview,
     Pagination
+  },
+  watch: {
+    "$route.query.tagname": function () {
+      this.$router.push(`/search?tagname=${this.$route.query.tagname}`)
+      this.tagname = this.$route.query.tagname
+      this.doSearch()
+    }
   }
 }
 </script>

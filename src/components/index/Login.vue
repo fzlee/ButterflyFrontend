@@ -37,7 +37,6 @@ function doLogin () {
       password: password
     }).then((response) => {
       if (response.data.success === true) {
-        console.log('fffffffffffffffffff')
         this.$router.push({
           path: this.$route.query.url || '/'
         })
