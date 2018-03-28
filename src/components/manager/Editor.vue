@@ -25,7 +25,7 @@
       <div>
         <b-button-group>
           <b-button variant="primary" @click="saveArticle">提交</b-button>
-          <b-button variant="primary">预览</b-button>
+          <a :href="`/articles/${article.url}?is_preview=true`" target="_blank" class="btn btn-primary">预览</a>
           <b-button variant="primary">文件处理</b-button>
         </b-button-group>
 
