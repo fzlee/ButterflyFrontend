@@ -162,6 +162,10 @@ function checkURLInPlace () {
   })
 }
 
+function autoSave () {
+  setInterval(this.saveArticle, 60 * 1000)  
+}
+
 export default {
   name: 'editor',
   components: {
@@ -229,6 +233,7 @@ export default {
   },
   mounted () {
     this.initEditor()
+    this.autoSave()
   },
   methods: {
     initEditor,
@@ -237,7 +242,8 @@ export default {
     getGroupDisplay,
     saveArticle,
     checkURLInPlace,
-    stripTags
+    stripTags,
+    autoSave
   }
 }
 </script>
