@@ -25,7 +25,7 @@
             <i class="c-nickname">{{comment.nickname}}</i> 在
             <span class="c-time">{{formatCommentTime(comment.create_at)}}</span>
           </div>
-          <div class="c-content"><router-link :to="comment.page.url">{{comment.content}}</router-link></div>
+          <div class="c-content"><router-link :to="`/articles/${comment.page.url}`">{{comment.content}}</router-link></div>
         </div>
       </div>
 
