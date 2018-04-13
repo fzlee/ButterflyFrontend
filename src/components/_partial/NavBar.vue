@@ -55,4 +55,14 @@ export default {
 <style>
 @import '../../../node_modules/tui-editor/dist/tui-editor-contents.min.css';
 @import '../../../node_modules/highlight.js/styles/github.css';
+
+.tui-editor-contents {
+  font-size: 1rem;
+}
+
+.te-md-container .CodeMirror {
+  font-size: 1rem;
+}
+
+
 </style>

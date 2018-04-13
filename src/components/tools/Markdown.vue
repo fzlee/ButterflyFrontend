@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../../node_modules/codemirror/lib/codemirror.css';
 @import '../../../node_modules/tui-editor/dist/tui-editor.min.css';
 @import '../../../node_modules/tui-editor/dist/tui-editor-contents.min.css';
