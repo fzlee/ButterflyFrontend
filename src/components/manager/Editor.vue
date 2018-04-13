@@ -247,10 +247,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import '../../../node_modules/codemirror/lib/codemirror.css';
-@import '../../../node_modules/tui-editor/dist/tui-editor.min.css';
-@import '../../../node_modules/tui-editor/dist/tui-editor-contents.min.css';
-@import '../../../node_modules/highlight.js/styles/github.css';
-</style>
