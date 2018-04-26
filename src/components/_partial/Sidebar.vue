@@ -23,7 +23,7 @@
         <div v-for="(comment, index) in comments" :key="index" class="c-list">
           <div class="c-meta">
             <i class="c-nickname">{{comment.nickname}}</i> 在
-            <span class="c-time">{{formatCommentTime(comment.create_at)}}</span>
+            <span class="c-time">{{formatCommentTime(comment.create_time)}}</span>
           </div>
           <div class="c-content"><router-link :to="`/articles/${comment.page.url}`">{{comment.content}}</router-link></div>
         </div>
