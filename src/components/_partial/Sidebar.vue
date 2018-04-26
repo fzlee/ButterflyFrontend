@@ -54,7 +54,7 @@ function loadData () {
 }
 
 function formatCommentTime (time) {
-  return moment(time).format("YYYY-MM-DD hh:mm")
+  return moment(time).format('YYYY-MM-DD HH:MM')
 }
 
 export default {
