@@ -37,16 +37,32 @@ export default {
   },
   computed: {
     encodedContent: function () {
-      return encodeURIComponent(this.content)
+      try {
+        return encodeURIComponent(this.content)  
+      } catch {
+        return ''
+      }
     },
     decodedContent: function () {
-      return decodeURIComponent(this.content)
+      try {
+        return decodeURIComponent(this.content)
+      } catch {
+        return ''
+      }
     },
     base64Encoded: function () {
-      return btoa(this.content)
+      try {
+        return btoa(this.content)
+      } catch {
+        return ''
+      }
     },
     base64Decoded: function () {
-      return atob(this.content)
+      try {
+        return atob(this.content)
+      } catch {
+        return ''
+      }
     }
   }
 }
