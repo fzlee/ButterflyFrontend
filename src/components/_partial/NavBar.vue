@@ -10,6 +10,7 @@
           <b-nav-item-dropdown text="工具">
             <b-dropdown-item to="/tools/qrcode">二维码</b-dropdown-item>
             <b-dropdown-item to="/tools/markdown">Markdown</b-dropdown-item>
+            <b-dropdown-item to="/tools/encoding">编码</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item to="/manager/articles">
             <span v-if="hasLogin()">Admin</span>
