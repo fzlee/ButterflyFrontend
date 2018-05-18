@@ -10,7 +10,7 @@
                 placeholder="5-8位字母数字"
                 @keydown.enter.prevent="decryptArticle">
             </div>
-            <button type="button" class="btn btn-primary mb-2" @click="decryptArticle">提交</button>
+            <button type="button" class="btn btn-info btn-raised mb-2" @click="decryptArticle">提交</button>
           </div>
         </div>
 
@@ -26,7 +26,9 @@
           <div id="article-content"></div>
         </article>
         <hr>
-        操作：<a href="#" @click="showReplyModal()" v-if="article.allow_comment">评论</a> <span v-if="hasLogin()">| <router-link :to="`/manager/editor?url=${article.url}`"> 编辑 </router-link></span> 
+        <div class="d-block-inline">
+          操作：<a href="#" @click="showReplyModal()" v-if="article.allow_comment" class="btn btn-raised btn-info" >评论</a> <span v-if="hasLogin()"><router-link :to="`/manager/editor?url=${article.url}`" class="btn btn-info btn-raised"> 编辑 </router-link></span> 
+        </div>
       </div>
       <div class="bigwidget" v-if="article && article.is_original">
         <p>除非注明，本博客文章均为原创，禁止出于商业目的全文转载。个人转载时，请以链接形式标明本文地址。</p>

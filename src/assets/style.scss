@@ -1,6 +1,10 @@
 @import "_variables.scss";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap-material-design/scss/bootstrap-material-design.scss";
 @import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
+
+.navbar {
+  z-index:10
+}
 
 body {
   background-color: #eee;
@@ -29,33 +33,29 @@ body {
 
 // widget
 .widget {
-  background-color: $widgetbackground;
-  padding: 15px;
-  margin: 10px 5px;
-  &:hover {
-    background-color: #F8FCFE;
-  }
-  @include rectbox();
+  @extend .card;
+  @extend .card-body;
+
+  margin: 1.5em;
   word-wrap: break-word;
+
+  .title {
+    display: inline;
+    margin: -17px 0 0 -21px;
+  }
+  border: 1px solid #fff; 
   strong{
-    font-size: 14px;
-    display:inline-block;
+    font-size: 1em;
+    display:inline;
     line-height: 20px;
     font-weight: normal;
-
-    @media (max-width: $screen-sm-min) {
-      margin: -18px 0px 0px -9px;
-    }
-    @media (min-width: $screen-sm-min){
-      margin: -32px 0px 0px -16px;
-    }
-    padding: 3px 15px 4px 15px;
+    padding: 6px 1.5em 6px 1.5em;
     vertical-align: middle;
     color: #fff;
   }
   &.announcement strong{
     background-color: $baseblue;
-    border: 0px solid $baseblue;
+    border: 1px solid $baseblue;
   }
   &.announcement:hover{
     border: 1px solid $baseblue;
@@ -64,18 +64,19 @@ body {
   &.announcement .announcebody{
     padding-top: 10px;
     padding-bottom: 10px;
-
   }
+
   &.tags strong{
     background-color: $basered;
-    border: 0px solid $basered;
+    border: 1px solid $basered;
   }
   &.tags:hover{
     border: 1px solid $basered;
   }
+
   &.links strong{
     background-color: $basegreen;
-    border: 0px solid $basegreen;
+    border: 1px solid $basegreen;
   }
   &.links:hover{
     border: 1px solid $basegreen;
@@ -88,7 +89,7 @@ body {
 
   &.comments strong{
     background-color: $baseorange;
-    border: 0px solid $baseorange;
+    border: 1px solid $baseorange;
   }
   &.comments:hover{
     border: 1px solid $baseorange;
@@ -107,28 +108,22 @@ body {
     margin: 5px 7px 5px 0;
   }
   a{
-    padding: 3px 8px 3px;
-    font-size: 13px;
-    white-space: nowrap;
-    background: $baseblue;
-    color:#fff;
-    transition-duration: 0.3s;
-    box-shadow: 1px 2px 2px #888;
-    &:hover,&:focus{
-      background: $basecyan;
-      color:#fff;
-    }
-  }
-  a{
+    @extend .btn;
+    @extend .btn-raised;
+    @extend .btn-info;
+    @extend .btn-sm;
+    font-size:  0.9em;
+    padding: 4px 6px 2px 6px;
     text-decoration: none;
   }
   clear:both;
 }
 
 .bigwidget{
-  @include rectbox();
-  word-wrap: break-word;
-  padding:15px;
+  @extend .card;
+  @extend .card-body;
+  margin: 1.5em;
+
   img{
     max-width: 100%;
     max-height:100%;
@@ -162,7 +157,7 @@ $dot-bar-height:$dot-radius/2;
   margin:1em 10px 10px 0;
   float:left;
   width:95%;
-  background:#428bca;
+  background:$baseblue;
   
   text-align:center;
   border-radius:0px;    
@@ -176,7 +171,7 @@ $dot-bar-height:$dot-radius/2;
   left:$dot-left;    
   width:$dot-radius;
   height:$dot-radius;
-  background:#428bca;
+  background:$baseblue;
   z-index:1;
   border-radius:$dot-radius;
   box-shadow:0 2px 2px #888;
@@ -204,7 +199,7 @@ $dot-bar-height:$dot-radius/2;
   float:left;
   width:40%;
   background:#fff;
-  color:#428bca;
+  color:$baseblue;
   font:bold 30px/60px "Arial Black",Arial, Helvetica, sans-serif; 
 }
 .month-year{

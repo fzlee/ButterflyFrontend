@@ -1,11 +1,11 @@
 <template>
   <div class="pagination">
-    <div class="btn-toolbar mb-2" role="toolbar" aria-label="Toolbar with button groups" style="background-color: #fff">
-      <div class="btn-group" role="group" aria-label="First group" styles="background-color: #fff">
-        <button type="button" class="jump btn btn-outline-primary" @click="jumpToPage(1 - currentPage)">首页</button>
-        <button type="button" class="jump btn btn-outline-primary" @click="jumpToPage(-1)">上一页</button>
-        <button type="button" class="jump btn btn-outline-primary" disabled>第{{currentPage}}页</button>
-        <button type="button" class="jump btn btn-outline-primary" @click="jumpToPage(1)">下一页</button>
+    <div class="btn-toolbar mb-2" role="toolbar">
+      <div class="btn-group" role="group">
+        <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(1 - currentPage)">首页</button>
+        <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(-1)">上一页</button>
+        <button type="button" class="jump btn btn-raised btn-info" disabled>第{{currentPage}}页</button>
+        <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(1)">下一页</button>
       </div>
     </div>
   </div> 

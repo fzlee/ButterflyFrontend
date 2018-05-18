@@ -1,22 +1,37 @@
 <template>
   <div class="edit-article">
     <div class="row mx-2">
-      <b-input-group prepend="标题">
-        <b-form-input placeholder="如何阅读" v-model="article.title"></b-form-input>
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-btn size="sm" variant="info" class="btn-raised">标题</b-btn>
+        </b-input-group-prepend>
+        <b-form-input v-model="article.title"></b-form-input>
       </b-input-group>
-      <b-input-group prepend="URL">
-        <b-form-input placeholder="how-to-read-a-book" 
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-btn size="sm" variant="info" class="btn-raised">URL</b-btn>
+        </b-input-group-prepend>
+        <b-form-input
           v-model="article.url"  
           v-on:blur.native="checkURLInPlace" name="url" 
           :class="{ 'is-invalid': errors.has('url')}"></b-form-input>
       </b-input-group>
-      <b-input-group prepend="标签">
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-btn size="sm" variant="info" class="btn-raised">标签</b-btn>
+        </b-input-group-prepend>
         <b-form-input placeholder="逗号隔开" v-model="article.tags"></b-form-input>
       </b-input-group>
-      <b-input-group prepend="meta content">
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-btn size="sm" variant="info" class="btn-raised">meta content</b-btn>
+        </b-input-group-prepend>
         <b-form-input v-model="article.metacontent"></b-form-input>
       </b-input-group>
-      <b-input-group prepend="密码">
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-btn size="sm" variant="info" class="btn-raised">密码</b-btn>
+        </b-input-group-prepend>
         <b-form-input :disabled="passwordGroup.value != true" v-model="article.password"></b-form-input>
       </b-input-group>
     </div>
@@ -24,21 +39,21 @@
     <div class="row mx-2">
       <div>
         <b-button-group>
-          <b-button variant="primary" @click="saveArticle">提交</b-button>
-          <a :href="`/articles/${article.url}?is_preview=true`" target="_blank" class="btn btn-primary">预览</a>
-          <b-button variant="primary">文件处理</b-button>
+          <b-button variant="info" @click="saveArticle" class="btn-raised">提交</b-button>
+          <a :href="`/articles/${article.url}?is_preview=true`" target="_blank" class="btn btn-info btn-raised">预览</a>
+          <b-button variant="info" class="btn-raised">文件处理</b-button>
         </b-button-group>
 
-        <b-dropdown :text="getGroupDisplay(displayGroup)" class="ml-2" variant="primary">
+        <b-dropdown :text="getGroupDisplay(displayGroup)" class="ml-2" variant="info" toggle-class="btn-raised">
           <b-dropdown-item v-for="menu in displayGroup.menus" :key="menu.value" @click="changeDropdown(displayGroup, menu)">{{menu.text}}</b-dropdown-item>
         </b-dropdown>
-        <b-dropdown :text="getGroupDisplay(originalGroup)" variant="primary">
+        <b-dropdown :text="getGroupDisplay(originalGroup)" variant="info" toggle-class="btn-raised">
           <b-dropdown-item v-for="menu in originalGroup.menus" :key="menu.value" @click="changeDropdown(originalGroup, menu)">{{menu.text}}</b-dropdown-item>
         </b-dropdown>
-        <b-dropdown :text="getGroupDisplay(commentGroup)" variant="primary">
+        <b-dropdown :text="getGroupDisplay(commentGroup)" variant="info" toggle-class="btn-raised">
           <b-dropdown-item v-for="menu in commentGroup.menus" :key="menu.value" @click="changeDropdown(commentGroup, menu)">{{menu.text}}</b-dropdown-item>
         </b-dropdown>
-        <b-dropdown :text="getGroupDisplay(passwordGroup)" variant="primary">
+        <b-dropdown :text="getGroupDisplay(passwordGroup)" variant="info" toggle-class="btn-raised">
           <b-dropdown-item v-for="menu in passwordGroup.menus" :key="menu.value" @click="changeDropdown(passwordGroup, menu)">{{menu.text}}</b-dropdown-item>
         </b-dropdown>
       </div>
@@ -126,6 +141,10 @@ function saveArticle () {
     return
   }
 
+  if (!this.article.url) {
+    return
+  }
+
   let content = Object.assign({}, this.article)
 
   this.$http.put('/api/articles/save', content).then((response) => {
@@ -163,7 +182,7 @@ function checkURLInPlace () {
 }
 
 function autoSave () {
-  setInterval(this.saveArticle, 60 * 1000)  
+  this.timer = setInterval(this.saveArticle, 60 * 1000)  
 }
 
 export default {
@@ -175,6 +194,7 @@ export default {
       article: {},
       editor: null,
       editorType: 'markdown',
+      timer: null,
       options: {},
       errors: new Set(),
       displayGroup: {
@@ -235,6 +255,9 @@ export default {
     this.initEditor()
     this.autoSave()
   },
+  beforeDestroy () {
+    clearInterval(this.timer)
+  },
   methods: {
     initEditor,
     createEditor,
@@ -247,3 +270,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .btn-group {
+    margin: 10px 0;
+  }
+</style>

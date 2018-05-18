@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
+    "bootstrap-material-design": "^4.1.1",
     "bootstrap-vue": "^2.0.0-rc.2",
     "js-cookie": "^2.2.0",
     "moment": "^2.21.0",

@@ -1,27 +1,27 @@
 <template>
   <div class="col-md-9 maincolumn">
-    <div class="jumbotron jumbotron-fluid widget" >
-    <div class="container">
-      <h1 class="display-4">用户登录</h1>
-      <form>
-        <div class="form-group row">
-          <label for="username" class="col-sm-2 col-form-label">用户名</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="username">
+    <div class="bigwidget" >
+      <div class="container">
+        <h1 class="display-4">用户登录</h1>
+        <form>
+          <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label">用户名</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="username">
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="password" class="col-md-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="password">
+          <div class="form-group row">
+            <label for="password" class="col-md-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="password">
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <button class="btn btn-primary mx-auto" type="button" @click.prevent="doLogin">登录</button>
-        </div>
-      </form>
-    </div>
-</div>
+          <div class="form-group row">
+            <button class="btn btn-raised btn-info mx-auto" type="button" @click.prevent="doLogin">登录</button>
+          </div>
+        </form>
+      </div>
+  </div>
   </div>
 </template>
 

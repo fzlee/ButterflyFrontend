@@ -1,5 +1,5 @@
 <template>
-  <div class="widget">
+  <div class="bigwidget">
     <div class="row">
       <div class="col-md-3">
         <calender :date="article.create_time"></calender>

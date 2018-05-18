@@ -2,7 +2,9 @@
   <div class="col-md-3 maincolumn" >
     <div class="sidebar">
       <div class="announcement widget" v-if="announcement && announcement.content">
-        <strong>公告</strong>
+        <div class="title">
+          <strong>公告</strong>
+        </div>
         <div class="announcebody">
           <div>{{announcement.content}}...</div>
           <div class="float-right"><router-link :to="`/articles/${announcement.url}`">查看&gt;&gt;</router-link></div>
@@ -10,7 +12,9 @@
       </div>
 
       <div class="tags widget" v-if="tags && tags.length">
-        <strong>标签</strong>
+        <div class="title">
+          <strong>标签</strong>
+        </div>
         <div class="tagcloud">
           <div v-for="(tag, index) in tags" :key="index" class="tag">
             <router-link :to="'/search?tagname=' + encodeURIComponent(tag)">{{tag}}</router-link> 
@@ -19,7 +23,9 @@
       </div>
 
       <div class="comments widget" v-if="comments && comments.length">
-        <strong>最近评论</strong>
+        <div class="title">
+          <strong>最近评论</strong>
+        </div>
         <div v-for="(comment, index) in comments" :key="index" class="c-list">
           <div class="c-meta">
             <i class="c-nickname">{{comment.nickname}}</i> 在
@@ -30,7 +36,9 @@
       </div>
 
       <div class="links widget" v-if="links && links.length">
-        <strong>友情链接</strong>
+        <div class="title">
+          <strong>友情链接</strong>
+        </div>
         <ul>
           <li v-for="(link, index) in links" :key="index">
             <a :href="link.href">{{link.name}}</a>

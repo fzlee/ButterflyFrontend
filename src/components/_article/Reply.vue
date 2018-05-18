@@ -29,8 +29,8 @@
         </div>
       </form>
       <div slot="modal-footer" class="w-100">
-        <b-btn size="sm" class="float-right mx-1" variant="secondary" @click="$refs.modalRef.hide()">关闭</b-btn>
-        <b-btn size="sm" class="float-right mx-1" variant="primary" @click="submitComment">提交</b-btn>
+        <button class="btn btn-raised btn-secondary float-right mx-1" @click="$refs.modalRef.hide()">关闭</button>
+        <button class="btn btn-raised btn-info float-right mx-1" @click="submitComment">提交</button>
      </div>
     </b-modal>
   </div>  
