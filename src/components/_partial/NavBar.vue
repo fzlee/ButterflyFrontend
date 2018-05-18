@@ -67,6 +67,10 @@ export default {
   font-size: 1rem;
 }
 
+.navbar {
+  z-index:10
+}
+
 .navbar-dark .navbar-brand {
   color: #fff;
 }

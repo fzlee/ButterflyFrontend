@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>创建友情链接<button class="btn btn-sm btn-primary mx-2" type="button" @click="createLink">创建</button></h3>
+    <h3>创建友情链接<button class="btn btn-sm btn-info mx-2 btn-raised" type="button" @click="createLink">创建</button></h3>
     <form>
       <div class="form-group row">
         <label for="name" class="col-md-2 col-form-label col-form-label-sm">名称</label>

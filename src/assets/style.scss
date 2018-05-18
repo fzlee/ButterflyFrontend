@@ -2,10 +2,6 @@
 @import "../node_modules/bootstrap-material-design/scss/bootstrap-material-design.scss";
 @import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 
-.navbar {
-  z-index:10
-}
-
 body {
   background-color: #fafafa;
   .maincolumn {
@@ -19,7 +15,7 @@ body {
   border-radius: 0px;
   background-color: #fff;
   border: 1px solid $widgetbackground;
-  clear:both;
+  clear: both;
 
   @media (max-width: $screen-sm-min) {
     padding: 8px;
@@ -62,8 +58,7 @@ body {
   }
 
   &.announcement .announcebody{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
   }
 
   &.tags strong{
