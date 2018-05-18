@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
+    <b-navbar toggleable="md" type="dark" fixed="top" style="background:#347eff">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand to="/">{{ brand_name }}</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
@@ -67,5 +67,8 @@ export default {
   font-size: 1rem;
 }
 
+.navbar-dark .navbar-brand {
+  color: #fff;
+}
 
 </style>
