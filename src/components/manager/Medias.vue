@@ -18,7 +18,7 @@
           <td>{{bytesToSize(media.size)}}</td>
           <td>{{media.version}}</td>
           <td>
-            <button class="btn btn-danger btn-sm" @click="deleteMedia(media)">删除</button>
+            <button class="btn btn-danger btn-sm btn-raised" @click="deleteMedia(media)">删除</button>
           </td>
         </tr>
       </tbody>

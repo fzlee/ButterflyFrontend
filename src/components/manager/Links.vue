@@ -42,8 +42,8 @@
             <span v-else>不显示</span>
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" @click="deleteLink(link)">删除</button>
-            <button class="btn btn-sm btn-primary" @click="toggleLink(link)">
+            <button class="btn btn-sm btn-raised btn-danger" @click="deleteLink(link)">删除</button>
+            <button class="btn btn-sm btn-raised btn-info" @click="toggleLink(link)">
               <span v-if="link.display">隐藏</span>
               <span v-else>显示</span>
             </button>
