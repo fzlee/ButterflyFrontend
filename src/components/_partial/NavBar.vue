@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="dark" class="bg-dark" variant="info" fixed="top">
+    <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand to="/">{{ brand_name }}</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
