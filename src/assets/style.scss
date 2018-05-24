@@ -32,7 +32,14 @@ body {
   @extend .card;
   @extend .card-body;
 
-  margin: 1.5em;
+
+  @media (max-width: $screen-sm-min) {
+    margin: 1em 0;
+  }
+  
+  @media (min-width: $screen-sm-min) {
+    margin: 1.5em;
+  }
   word-wrap: break-word;
 
   .title {
@@ -117,7 +124,13 @@ body {
 .bigwidget{
   @extend .card;
   @extend .card-body;
-  margin: 1.5em;
+  @media (max-width: $screen-sm-min) {
+    margin: 0px;
+  }
+  
+  @media (min-width: $screen-sm-min) {
+    margin: 1.5em;
+  }
 
   img{
     max-width: 100%;
