@@ -1,8 +1,8 @@
 <template>
     <div class="col-md-9 maincolumn" >
       <div class="bigwidget">
-        <div class="mx-auto" v-if="article.need_key" style="width: 400px">
-          <div class="form-inline " >
+        <div class="mx-auto" v-if="article.need_key">
+          <div class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
               <input type="password" 
                 class="form-control" 
