@@ -1,6 +1,6 @@
 <template>
-  <div class="pagination mx-auto" style="width: 100%">
-    <div class="btn-toolbar mb-2" role="toolbar">
+  <div class="pagination " style="width: 100%">
+    <div class="btn-toolbar mb-2 mx-auto" role="toolbar">
       <div class="btn-group" role="group">
         <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(1 - currentPage)">首页</button>
         <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(-1)">上一页</button>

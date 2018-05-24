@@ -85,6 +85,8 @@ function loadData () {
     this.article = response.data.data
     this.tags = this.article.tags.split(',')
     this.renderContent(this.article.content)
+
+    this.$store.commit('setTitle', this.article.title)
   })
 
   this.$http.get(`/api/articles/${this.$route.params.url}/comments`).then((response) => {

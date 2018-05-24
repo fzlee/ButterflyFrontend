@@ -35,6 +35,9 @@ export default {
       content: ''
     }
   },
+  mounted() {
+    this.$store.commit('setTitle', 'ifconfiger-编码工具')
+  },
   computed: {
     encodedContent: function () {
       try {

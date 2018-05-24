@@ -15,6 +15,7 @@ function loadData () {
   this.$http.get(`/api/articles/preview?page=${this.$route.query.page || 1}`).then((response) => {
     this.articles = response.data.data
   })
+  this.$store.commit('setTitle', `ifconfiger-第${this.$route.query.page || 1}页`)
 }
 
 export default {

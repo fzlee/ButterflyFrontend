@@ -67,6 +67,7 @@ export default {
   name: 'markdown',
   mounted () {
     this.createEditor()
+    this.$store.commit('setTitle', 'ifconfiger-Markdown')
   },
   methods: {
     createEditor

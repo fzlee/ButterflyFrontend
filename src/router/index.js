@@ -14,6 +14,7 @@ import Comments from '@/components/manager/Comments'
 import Links from '@/components/manager/Links'
 import Medias from '@/components/manager/Medias'
 import {hasLogin} from '@/services/auth'
+import store from '@/vuex/store'
 
 let router = new Router({
   mode: 'history',
@@ -82,6 +83,8 @@ let router = new Router({
 })
 
 router.beforeEach(function (to, from, next) {
+  store.commit('setTitle', '')
+
   if (/^\/manager/.test(to.fullPath) && !hasLogin()) {
     next({path: '/login', query: {url: to.fullPath}})
   } else {

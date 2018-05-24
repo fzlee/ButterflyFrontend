@@ -46,6 +46,7 @@ export default {
   },
   mounted () {
     this.drawQRCode()
+    this.$store.commit('setTitle', 'ifconfiger-二维码')
   },
   methods: {
     drawQRCode
