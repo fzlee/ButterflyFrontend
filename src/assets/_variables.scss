@@ -1,6 +1,7 @@
 $widgetbackground: #fff;
 $basered :#F34069;
 $baseblue:#03a9f4;
+$baseblue:#347eff;
 $basegreen:#5CB85C;
 $basegray:#333;
 $basecyan:#424c50;
@@ -21,3 +22,7 @@ $navbar-dark-color:                 rgba(#fff,1) !default;
 $navbar-dark-hover-color:           rgba(#fff,.75) !default;
 $navbar-dark-active-color:          rgba(#fff,.5) !default;
 $navbar-dark-disabled-color:        rgba(#fff,.25) !default;
+
+$theme-colors: (
+  "info": #347eff
+);
