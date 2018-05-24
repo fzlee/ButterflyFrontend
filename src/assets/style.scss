@@ -7,7 +7,6 @@ body {
   .maincolumn {
     padding-left: 0;
     padding-right: 0;
-    padding-top: 20px
   }
 }
 
@@ -31,7 +30,6 @@ body {
 .widget {
   @extend .card;
   @extend .card-body;
-
 
   @media (max-width: $screen-sm-min) {
     margin: 1em 0;
@@ -125,7 +123,7 @@ body {
   @extend .card;
   @extend .card-body;
   @media (max-width: $screen-sm-min) {
-    margin: 0px;
+    margin: 1em 0;
   }
   
   @media (min-width: $screen-sm-min) {

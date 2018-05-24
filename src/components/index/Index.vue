@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="margin-top: 40px">
+  <div class="container">
     <div class="row">
       <router-view></router-view>
       <sidebar></sidebar>

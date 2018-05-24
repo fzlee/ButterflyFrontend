@@ -3,11 +3,7 @@
     <div v-for="article in articles" :key="article.url">
       <article-preview :article="article"></article-preview>  
     </div>
-    <div class="row">
-      <div class="mx-auto">
-        <pagination baseURL="" :has-next="articles && articles.length" v-on:pagination="this.loadData"></pagination>
-      </div>
-    </div>
+    <pagination baseURL="" :has-next="articles && articles.length" v-on:pagination="this.loadData"></pagination>
   </div>
 </template>
 
