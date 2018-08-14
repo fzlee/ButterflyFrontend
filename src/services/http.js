@@ -1,6 +1,6 @@
 import { showSuccessAlert, showFailedAlert } from '@/utils/alert'
-const axios = require('axios')
-const Spinner = require('spin')
+import axios from 'axios'
+import Spinner from 'spin'
 const http = axios.create()
 
 // before crequest

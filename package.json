@@ -15,6 +15,7 @@
     "js-cookie": "^2.2.0",
     "moment": "^2.21.0",
     "node-sass": "^4.8.3",
+    "prerender": "^5.4.4",
     "qrcode": "^1.2.0",
     "sass-loader": "^6.0.7",
     "spin": "^0.0.1",
@@ -29,7 +30,9 @@
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-service": "^3.0.0-beta.6",
-    "vue-template-compiler": "^2.5.13"
+    "babel-plugin-transform-optional-catch-binding": "^7.0.0-alpha.16",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^4.16.5"
   },
   "babel": {
     "presets": [
