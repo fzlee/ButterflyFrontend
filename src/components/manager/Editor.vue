@@ -76,7 +76,6 @@ import 'tui-editor/dist/tui-editor-extScrollSync.js'
 function initEditor() {
   if (this.$route.query.url) {
     this.$http.get(`/api/articles/${this.$route.query.url}`).then((response) => {
-      console.log(this.originalGroup.key)
       response.data.data.tags = this.stripTags(response.data.data.tags)
       this.article = response.data.data
       this.displayGroup.value = this.article.allow_visit

@@ -181,7 +181,7 @@ $dot-bar-height:$dot-radius/2;
   width:$dot-radius;
   height:$dot-radius;
   background:$baseblue;
-  z-index:1;
+  z-index:0;
   border-radius:$dot-radius;
   box-shadow:0 2px 2px #888;
   }
@@ -200,7 +200,7 @@ $dot-bar-height:$dot-radius/2;
   width:14px;
   height:4px;
   background:#ccc;
-  z-index:2;
+  z-index:0;
   border-radius:2px;
   }
 .day{

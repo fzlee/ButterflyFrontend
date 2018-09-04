@@ -30,7 +30,10 @@
       </form>
       <div slot="modal-footer" class="w-100">
         <button class="btn btn-raised btn-secondary float-right mx-1" @click="$refs.modalRef.hide()">关闭</button>
-        <button class="btn btn-raised btn-info float-right mx-1" @click="submitComment">提交</button>
+        <button class="btn btn-raised float-right mx-1" :class="{'btn-secondary': isSubmitting, 'btn-info': !isSubmitting}" @click="submitComment">
+          <span v-if="!isSubmitting">提交</span>
+          <span v-else>提交中...</span>
+        </button>
      </div>
     </b-modal>
   </div>  
@@ -70,9 +73,11 @@ function validateForm () {
 }
 
 function submitComment() {
-  if (!this.validateForm()) {
+  if (!this.validateForm() || this.isSubmitting) {
     return
   }
+  this.isSubmitting = true
+
 
   const url = this.$route.params.url
 
@@ -88,6 +93,7 @@ function submitComment() {
     this.$emit('refreshComments')
     this.$refs.modalRef.hide()
     this.saveData()
+    this.isSubmitting = false
   })
 }
 
@@ -98,7 +104,8 @@ export default {
       comment: null,
       nickname: '',
       website: '',
-      email: ''
+      email: '',
+      isSubmitting: false
     }
   },
   created () {
