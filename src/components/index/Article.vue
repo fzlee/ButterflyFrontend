@@ -16,7 +16,7 @@
 
         <article v-if="article">
           <h3><router-link :to="`/articles/${article.url}`">{{article.title}}</router-link></h3>
-          <div v-if="article && article.create_time">博主创建于{{getCreateTime(article.create_at)}}</div>
+          <div v-if="article && article.create_time">博主创建于{{getCreateTime(article.create_time)}}</div>
           <div class="tagcloud">
             <div class="tag" v-for="(tagname, index) of this.splitTags(article.tags)" :key="index">
               <router-link :to="'/search?tagname=' + encodeURIComponent(tagname)">{{tagname}}</router-link>

@@ -3,7 +3,7 @@
     <div v-for="article in articles" :key="article.url">
       <article-preview :article="article"></article-preview>  
     </div>
-    <pagination baseURL="" :has-next="articles && articles.length" v-on:pagination="this.loadData"></pagination>
+    <pagination baseURL="" :has-next="articles && articles.length" v-on:pagination="this.loadData" v-if="articles.length !== 0"></pagination>
   </div>
 </template>
 
