@@ -32,7 +32,7 @@
       </div>
       <div class="bigwidget" v-if="article && article.is_original">
         <p>除非注明，本博客文章均为原创，禁止出于商业目的全文转载。个人转载时，请以链接形式标明本文地址。</p>
-        <p>本文地址：<router-link :to="getArticleURL()">{{getArticleURL()}}</router-link></p>
+        <p>本文地址：<router-link :to="getArticleURL()">{{ getHostName() + getArticleURL()}}</router-link></p>
       </div>
 
       <div class="bigwidget" v-if="comments && comments.length">
@@ -103,7 +103,11 @@ function getCreateTime (date) {
 }
 
 function getArticleURL() {
-  return location.origin + location.pathname
+  return location.pathname
+}
+
+function getHostName() {
+  return location.origin
 }
 
 function decryptArticle () {
@@ -132,6 +136,7 @@ export default {
     loadData,
     getCreateTime,
     getArticleURL,
+    getHostName,
     formatTime,
     renderContent,
     hasLogin,
