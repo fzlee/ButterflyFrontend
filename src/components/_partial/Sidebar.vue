@@ -17,7 +17,7 @@
         </div>
         <div class="tagcloud">
           <div v-for="(tag, index) in tags" :key="index" class="tag">
-            <router-link :to="'/search?tagname=' + encodeURIComponent(tag)">{{tag}}</router-link> 
+            <button @click="routeTo(tag)">{{tag}}</button>
           </div>
         </div>
       </div>
@@ -61,6 +61,15 @@ function loadData () {
   })
 }
 
+function routeTo (tag) {
+  this.$router.push({
+    path: '/search',
+    query: {
+      tagname: encodeURIComponent(tag)
+    }
+  })
+}
+
 function formatCommentTime (time) {
   return moment(time).format('YYYY-MM-DD HH:MM')
 }
@@ -80,7 +89,8 @@ export default {
   },
   methods: {
     loadData,
-    formatCommentTime
+    formatCommentTime,
+    routeTo
   }
 }
 </script>

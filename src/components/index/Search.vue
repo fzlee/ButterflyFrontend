@@ -29,7 +29,7 @@ function doSearch () {
     return
   }
 
-  const url = `/api/articles/search?tagname=${this.tagname}&page=${this.$route.query.page || 1}`
+  const url = `/api/articles/search?tagname=${encodeURIComponent(this.tagname)}&page=${this.$route.query.page || 1}`
   this.$http.get(url).then((response) => {
     this.articles = response.data.data
   })
@@ -56,8 +56,7 @@ export default {
   },
   watch: {
     "$route.query.tagname": function () {
-      this.$router.push(`/search?tagname=${this.$route.query.tagname}`)
-      this.tagname = this.$route.query.tagname
+      this.tagname = decodeURIComponent(this.$route.query.tagname)
       this.doSearch()
     }
   }

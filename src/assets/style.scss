@@ -102,15 +102,16 @@ img {
   }
 }
 
-.tagcloud{
+.tagcloud {
   overflow: auto;
   margin: 10px 0 0 0;
-  div{ 
+  div {
     float: left;
     display:inline;
     margin: 5px 7px 5px 0;
   }
-  a{
+  
+  button, a {
     @extend .btn;
     @extend .btn-raised;
     @extend .btn-info;
