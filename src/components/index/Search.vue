@@ -28,6 +28,7 @@ function doSearch () {
   if (this.tagname.length === 0){
     return
   }
+  this.articles = []
 
   const url = `/api/articles/search?tagname=${encodeURIComponent(this.tagname)}&page=${this.$route.query.page || 1}`
   this.$http.get(url).then((response) => {
