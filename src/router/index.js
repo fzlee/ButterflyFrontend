@@ -1,18 +1,4 @@
 import Router from 'vue-router'
-import Index from '@/components/index/Index'
-import Articles from '@/components/index/Articles'
-import Article from '@/components/index/Article'
-import Login from '@/components/index/Login'
-import Search from '@/components/index/Search'
-import QRCode from '@/components/tools/QRCode'
-import Encoding from '@/components/tools/Encoding'
-import Markdown from '@/components/tools/Markdown'
-import Manager from '@/components/manager/Manager'
-import ManagerArticles from '@/components/manager/Articles'
-import Editor from '@/components/manager/Editor'
-import Comments from '@/components/manager/Comments'
-import Links from '@/components/manager/Links'
-import Medias from '@/components/manager/Medias'
 import {hasLogin} from '@/services/auth'
 import store from '@/vuex/store'
 
@@ -21,37 +7,37 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      component: Index, 
+      component: () => import('@/components/index/Index'), 
       children: [
         {
           path: '',
-          component: Articles
+          component: () => import('@/components/index/Articles')
         },
         {
           path: 'articles/:url',
-          component: Article
+          component: () => import('@/components/index/Article')
         },
         {
           path: 'login',
-          component: Login
+          component: () => import('@/components/index/Login')
         },
         {
           path: 'search',
-          component: Search
+          component: () => import('@/components/index/Search')
         }, 
         {
           path: 'tools/qrcode',
-          component: QRCode
+          component: () => import(/* webpackChunkName: 'tools' */'@/components/tools/QRCode')
         },
         {
           path: 'tools/encoding',
-          component: Encoding
+          component: () => import(/* webpackChunkName: 'tools' */'@/components/tools/Encoding')
         }
       ]
     },
     {
       path: '/tools/markdown',
-      component: Markdown
+      component: () => import(/* webpackChunkName: 'tools' */'@/components/tools/Markdown')
     },
     {
       path: '/page/:url',
@@ -59,23 +45,23 @@ let router = new Router({
     },
     {
       path: '/manager',
-      component: Manager,
+      component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Manager'),
       children: [
         {
           path: 'articles',
-          component: ManagerArticles
+          component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Articles')
         },{
           path: 'editor',
-          component: Editor
+          component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Editor')
         }, {
           path: 'comments',
-          component: Comments
+          component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Comments')
         }, {
           path: 'links',
-          component: Links
+          component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Links')
         }, {
           path: 'medias',
-          component: Medias
+          component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Medias')
         }
       ]      
     }
