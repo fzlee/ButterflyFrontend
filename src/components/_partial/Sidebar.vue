@@ -29,7 +29,7 @@
         <div v-for="(comment, index) in comments" :key="index" class="c-list">
           <div class="c-meta">
             <i class="c-nickname">{{comment.nickname}}</i> 在
-            <span class="c-time">{{formatCommentTime(comment.create_time)}}</span>
+            <span class="c-time">{{formatTime(comment.create_time)}}</span>
           </div>
           <div class="c-content"><router-link :to="`/articles/${comment.page.url}`">{{comment.content}}</router-link></div>
         </div>
@@ -45,12 +45,12 @@
           </li>
         </ul>
       </div>
-    </div>  
+    </div>
   </div>
 </template>
 
 <script>
-import moment from 'moment'
+import { formatTime } from '@/utils/time'
 
 function loadData () {
   this.$http.get('/api/articles/sidebar').then((response) => {
@@ -70,10 +70,6 @@ function routeTo (tag) {
   })
 }
 
-function formatCommentTime (time) {
-  return moment(time).format('YYYY-MM-DD HH:MM')
-}
-
 export default {
   name: 'sidebar',
   data () {
@@ -89,7 +85,7 @@ export default {
   },
   methods: {
     loadData,
-    formatCommentTime,
+    formatTime,
     routeTo
   }
 }

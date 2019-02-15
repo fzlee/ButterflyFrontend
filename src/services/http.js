@@ -1,6 +1,5 @@
 import { showSuccessAlert, showFailedAlert } from '@/utils/alert'
 import axios from 'axios'
-import Spinner from 'spin'
 const http = axios.create()
 
 // before crequest
@@ -26,40 +25,5 @@ http.interceptors.response.use(function (response) {
   showFailedAlert(error)
   return Promise.reject(error)
 })
-
-function getSpinner () {
-  if (http.spinner) {
-    return http.spinner
-  }
-
-  var panel = document.getElementById('spin-panel')
-  if (!panel) {
-    panel = document.createElement('div')
-    panel.id = 'spin-panel'
-    panel.style.position = 'fixed'
-    panel.style.left = '50%'
-    panel.style.top = '50%'
-    panel.style.zIndex = '1000'
-    document.body.appendChild(panel)
-  }
-
-  var spinner = new Spinner({
-    width: 25,
-    radius: 84,
-    length: 0
-  })
-  http.spinner = spinner
-  return http.spinner
-}
-
-http.doSpin = function () {
-  let spinner = getSpinner()
-  let target = document.getElementById('spin-panel')
-  spinner.spin(target)
-}
-
-http.cancelSpin = function () {
-  getSpinner().stop()
-}
 
 export default http

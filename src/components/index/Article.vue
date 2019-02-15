@@ -4,9 +4,9 @@
         <div class="mx-auto" v-if="article.need_key">
           <div class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
-              <input type="password" 
-                class="form-control" 
-                id="password" 
+              <input type="password"
+                class="form-control"
+                id="password"
                 placeholder="5-8位字母数字"
                 @keydown.enter.prevent="decryptArticle">
             </div>
@@ -16,7 +16,7 @@
 
         <article v-if="article">
           <h3><router-link :to="`/articles/${article.url}`">{{article.title}}</router-link></h3>
-          <div v-if="article && article.create_time">博主创建于{{getCreateTime(article.create_time)}}</div>
+          <div v-if="article && article.create_time">博主创建于{{formatTime(article.create_time, 'yyyy年mm月dd日')}}</div>
           <div class="tagcloud">
             <div class="tag" v-for="(tagname, index) of this.splitTags(article.tags)" :key="index">
               <router-link :to="'/search?tagname=' + encodeURIComponent(tagname)">{{tagname}}</router-link>
@@ -27,7 +27,7 @@
         </article>
         <hr>
         <div class="d-block-inline">
-          操作：<a href="#" @click="showReplyModal()" v-if="article.allow_comment" class="btn btn-raised btn-info" >评论</a> <span v-if="hasLogin()"><router-link :to="`/manager/editor?url=${article.url}`" class="btn btn-info btn-raised"> 编辑 </router-link></span> 
+          操作：<a href="#" @click="showReplyModal()" v-if="article.allow_comment" class="btn btn-raised btn-info" >评论</a> <span v-if="hasLogin()"><router-link :to="`/manager/editor?url=${article.url}`" class="btn btn-info btn-raised"> 编辑 </router-link></span>
         </div>
       </div>
       <div class="bigwidget" v-if="article && article.is_original">
@@ -54,17 +54,16 @@
 </template>
 
 <script>
-import moment from 'moment'
-import {formatTime} from '@/utils/time'
-import {hasLogin} from '@/services/auth'
+import { formatTime } from '@/utils/time'
+import { hasLogin } from '@/services/auth'
 import ArticleMixin from '@/mixins/ArticleMixin'
-import TuiEditor from 'tui-editor'
+import TuiEditor from 'tui-editor/dist/tui-editor-Viewer'
+// var Viewer = require('tui-editor/dist/tui-editor-Viewer');
 import Reply from '@/components/_article/Reply'
-
 
 function renderContent (content) {
   if (!this.editor) {
-    this.editor = TuiEditor.factory({
+    this.editor = new TuiEditor({
       el: document.querySelector('#article-content'),
       viewer: true,
       initialValue: ''
@@ -98,20 +97,16 @@ function showReplyModal (comment) {
   this.$refs.replyRef.showModal(comment)
 }
 
-function getCreateTime (date) {
-  return moment(date).format('YYYY年MM月DD日')
-}
-
-function getArticleURL() {
+function getArticleURL () {
   return location.pathname
 }
 
-function getHostName() {
+function getHostName () {
   return location.origin
 }
 
 function decryptArticle () {
-  const password = document.querySelector("#password").value
+  const password = document.querySelector('#password').value
   this.$http.post(`/api/articles/${this.$route.params.url}/meta`, {
     password: password
   }).then((response) => {
@@ -134,7 +129,6 @@ export default {
   mixins: [ArticleMixin],
   methods: {
     loadData,
-    getCreateTime,
     getArticleURL,
     getHostName,
     formatTime,

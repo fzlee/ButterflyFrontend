@@ -57,11 +57,11 @@
       </div>
     </div>
   </div>
-  
+
 </template>
 
 <script>
-import {formatTime} from '@/utils/time'
+import { formatTime } from '@/utils/time'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function loadData () {

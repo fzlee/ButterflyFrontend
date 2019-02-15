@@ -4,8 +4,8 @@
       <b-form-input @change="drawQRCode(content)" v-model=content></b-form-input>
     </b-input-group>
     <b-form-group label="容错" class="mt-3">
-      <b-form-radio-group 
-        v-model="errorCorrectionLevel" 
+      <b-form-radio-group
+        v-model="errorCorrectionLevel"
         :options="correctionLevelOptions"
         @change="drawQRCode(content)">
       </b-form-radio-group>
@@ -20,10 +20,10 @@
 <script>
 // index.js -> bundle.js
 var QRCode = require('qrcode')
- 
+
 function drawQRCode (content) {
   content = content || location.origin
-  let canvas = document.getElementById('canvas')  
+  let canvas = document.getElementById('canvas')
   QRCode.toCanvas(canvas, content, {
     errorCorrectionLevel: this.errorCorrectionLevel,
     margin: 2,
@@ -37,10 +37,10 @@ export default {
       content: '',
       errorCorrectionLevel: 'H',
       correctionLevelOptions: [
-      { text: 'L', value: 'L' },
-      { text: 'M', value: 'M' },
-      { text: 'Q', value: 'Q' },
-      { text: 'H', value: 'H' },
+        { text: 'L', value: 'L' },
+        { text: 'M', value: 'M' },
+        { text: 'Q', value: 'Q' },
+        { text: 'H', value: 'H' }
       ]
     }
   },

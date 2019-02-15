@@ -8,7 +8,7 @@
         <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(1)">下一页</button>
       </div>
     </div>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -20,13 +20,13 @@ function jumpToPage (delta) {
 
   let targetPage = parseInt(this.currentPage) + delta
   if (targetPage >= 1) {
-    this.$router.push({ 
-      path: this.baseURL, 
+    this.$router.push({
+      path: this.baseURL,
       query: { page: targetPage }
     })
   }
 
-  this.$emit("pagination")
+  this.$emit('pagination')
 }
 
 export default {

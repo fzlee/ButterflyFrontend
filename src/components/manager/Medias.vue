@@ -33,7 +33,7 @@
 
 <script>
 import vue2Dropzone from 'vue2-dropzone'
-import {formatTime} from '@/utils/time'
+import { formatTime } from '@/utils/time'
 import 'vue2-dropzone/dist/vue2Dropzone.css'
 import Pagination from '@/components/_partial/Pagination.vue'
 
@@ -43,11 +43,11 @@ function loadData () {
   })
 }
 
-function bytesToSize(bytes) {
-  var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-  if (bytes == 0) return '0 Byte';
-  var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-  return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+function bytesToSize (bytes) {
+  var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+  if (bytes === 0) return '0 Byte'
+  var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
+  return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i]
 }
 
 function deleteMedia (media) {

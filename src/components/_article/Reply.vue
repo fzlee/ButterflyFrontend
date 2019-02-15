@@ -36,7 +36,7 @@
         </button>
      </div>
     </b-modal>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -50,7 +50,7 @@ function generateTitle () {
   }
 }
 
-function showModal(comment) {
+function showModal (comment) {
   this.comment = comment
   this.$refs.modalRef.show()
 }
@@ -72,12 +72,11 @@ function validateForm () {
   return this.nickname.length > 0 && this.email.length > 0
 }
 
-function submitComment() {
+function submitComment () {
   if (!this.validateForm() || this.isSubmitting) {
     return
   }
   this.isSubmitting = true
-
 
   const url = this.$route.params.url
 
@@ -85,8 +84,8 @@ function submitComment() {
     nickname: this.nickname,
     email: this.email,
     website: this.website,
-    content: document.querySelector("#content").value,
-    comment_id: this.comment? this.comment.id: null
+    content: document.querySelector('#content').value,
+    comment_id: this.comment ? this.comment.id : null
   }
 
   this.$http.post(`/api/articles/${url}/comments`, data).then(() => {

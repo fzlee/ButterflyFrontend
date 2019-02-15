@@ -12,8 +12,8 @@
           <b-btn size="sm" variant="info" class="btn-raised">URL</b-btn>
         </b-input-group-prepend>
         <b-form-input
-          v-model="article.url"  
-          v-on:blur.native="checkURLInPlace" name="url" 
+          v-model="article.url"
+          v-on:blur.native="checkURLInPlace" name="url"
           :class="{ 'is-invalid': errors.has('url')}"></b-form-input>
       </b-input-group>
       <b-input-group>
@@ -62,7 +62,7 @@
     <div class="row mx-2">
       <div class="edit-article" style="width: 100%;">
           <div id="editor">
-            
+
           </div>
       </div>
     </div>
@@ -73,7 +73,7 @@
 import TuiEditor from 'tui-editor'
 import 'tui-editor/dist/tui-editor-extScrollSync.js'
 
-function initEditor() {
+function initEditor () {
   if (this.$route.query.url) {
     this.$http.get(`/api/articles/${this.$route.query.url}`).then((response) => {
       response.data.data.tags = this.stripTags(response.data.data.tags)
@@ -109,7 +109,7 @@ function createEditor () {
     initialEditType: this.editorType,
     height: '500px',
     previewStyle: 'vertical',
-    initialValue: this.article? this.article.content : '',
+    initialValue: this.article ? this.article.content : '',
     exts: ['scrollSync']
   })
 }
@@ -160,14 +160,14 @@ function stripTags (tags) {
   }
 
   if (tags.endsWith(',')) {
-    tags = tags.slice(0, tags.length -1)
+    tags = tags.slice(0, tags.length - 1)
   }
   return tags
 }
 
 function checkURLInPlace () {
   // url 没有改变， 不检查
-  this.$http.post('/api/articles/in_place',{
+  this.$http.post('/api/articles/in_place', {
     url: this.article.url,
     article_id: this.article.id
   }).then((response) => {
@@ -181,7 +181,7 @@ function checkURLInPlace () {
 }
 
 function autoSave () {
-  this.timer = setInterval(this.saveArticle, 60 * 1000)  
+  this.timer = setInterval(this.saveArticle, 60 * 1000)
 }
 
 export default {

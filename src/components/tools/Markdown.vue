@@ -49,7 +49,7 @@ const content = [
   '  --> "Play music"',
   '}',
   '```'
-].join('\n');
+].join('\n')
 
 function createEditor () {
   this.editor = new TuiEditor({
@@ -61,7 +61,6 @@ function createEditor () {
     exts: ['scrollSync']
   })
 }
-
 
 export default {
   name: 'markdown',

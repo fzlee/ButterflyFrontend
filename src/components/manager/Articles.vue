@@ -42,7 +42,7 @@
 
 <script>
 import Pagination from '@/components/_partial/Pagination.vue'
-import {formatTime} from '@/utils/time'
+import { formatTime } from '@/utils/time'
 
 function loadData () {
   this.$http.get(`/api/articles?page=${this.$route.query.page || 1}`).then((response) => {

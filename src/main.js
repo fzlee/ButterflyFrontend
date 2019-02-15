@@ -22,4 +22,3 @@ new Vue({
   router,
   store: store
 }).$mount('#app')
- 

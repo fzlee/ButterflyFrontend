@@ -9,13 +9,15 @@
 </template>
 
 <script>
-import moment from 'moment'
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+]
 
 function parseDate () {
-  let time = moment(this.date)
-  this.year = time.format("YYYY")
-  this.month = time.format("MMMM")
-  this.day = time.format("DD")
+  let date = new Date(this.date)
+  this.year = date.getFullYear()
+  this.month = monthNames[date.getMonth()]
+  this.day = date.getDate()
 }
 
 export default {

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {showFailedAlert} from '@/utils/alert'
+import { showFailedAlert } from '@/utils/alert'
 
 function doLogin () {
   const username = document.querySelector('#username').value
@@ -36,13 +36,13 @@ function doLogin () {
       username: username,
       password: password
     }).then((response) => {
-      if (response.data.success === true) {
-        this.$router.push({
-          path: this.$route.query.url || '/'
-        })
-      } else {
-        showFailedAlert('用户名密码错误')
-      }
+    if (response.data.success === true) {
+      this.$router.push({
+        path: this.$route.query.url || '/'
+      })
+    } else {
+      showFailedAlert('用户名密码错误')
+    }
   })
 }
 

@@ -25,7 +25,7 @@ import ArticlePreview from '@/components/_articles/ArticlePreview.vue'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function doSearch () {
-  if (this.tagname.length === 0){
+  if (this.tagname.length === 0) {
     return
   }
   this.articles = []
@@ -51,12 +51,12 @@ export default {
   methods: {
     doSearch
   },
-  components : {
+  components: {
     ArticlePreview,
     Pagination
   },
   watch: {
-    "$route.query.tagname": function () {
+    '$route.query.tagname': function () {
       this.tagname = decodeURIComponent(this.$route.query.tagname)
       this.doSearch()
     }

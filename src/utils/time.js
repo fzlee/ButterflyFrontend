@@ -1,7 +1,8 @@
-import moment from 'moment'
+import DateFormat from 'dateformat'
 
 function formatTime (time, format) {
-  return moment(time).format(format || 'YYYY-MM-DD HH:MM')
+  const date = new Date(time)
+  return DateFormat(date, format || 'yyyy-mm-dd HH:MM')
 }
 
 export {

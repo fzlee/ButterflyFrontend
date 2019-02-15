@@ -14,7 +14,7 @@
       <label>decodeURIComponent</label>
       <textarea class="form-control" rows="3" readonly :value="decodedContent"></textarea>
     </div>
-    
+
     <div class="form-group">
       <label>Base64编码</label>
       <textarea class="form-control" rows="3" readonly :value="base64Encoded"></textarea>
@@ -35,13 +35,13 @@ export default {
       content: ''
     }
   },
-  mounted() {
+  mounted () {
     this.$store.commit('setTitle', 'ifconfiger-编码工具')
   },
   computed: {
     encodedContent: function () {
       try {
-        return encodeURIComponent(this.content)  
+        return encodeURIComponent(this.content)
       } catch {
         return ''
       }

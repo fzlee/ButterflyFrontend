@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {hasLogin} from '@/services/auth'
+import { hasLogin } from '@/services/auth'
 
 function searchWithGoogle () {
   const query = `site:${location.host} ${this.searchContent}`

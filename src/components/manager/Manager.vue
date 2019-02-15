@@ -21,7 +21,6 @@
   </div>
 </template>
 
-
 <script>
 function doLogout () {
   this.$http.post('/api/logout').then(() => {

@@ -14,5 +14,10 @@ module.exports = {
       }
     }, // string | Object
     before: app => {}
+  },
+  chainWebpack: config => {
+    config.module.rule('eslint').use('eslint-loader').options({
+      fix: true
+    })
   }
 }

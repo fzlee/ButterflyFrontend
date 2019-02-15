@@ -1,5 +1,5 @@
 import Router from 'vue-router'
-import {hasLogin} from '@/services/auth'
+import { hasLogin } from '@/services/auth'
 import store from '@/vuex/store'
 
 let router = new Router({
@@ -7,7 +7,7 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      component: () => import('@/components/index/Index'), 
+      component: () => import('@/components/index/Index'),
       children: [
         {
           path: '',
@@ -24,20 +24,20 @@ let router = new Router({
         {
           path: 'search',
           component: () => import('@/components/index/Search')
-        }, 
+        },
         {
           path: 'tools/qrcode',
-          component: () => import(/* webpackChunkName: 'tools' */'@/components/tools/QRCode')
+          component: () => import('@/components/tools/QRCode')
         },
         {
           path: 'tools/encoding',
-          component: () => import(/* webpackChunkName: 'tools' */'@/components/tools/Encoding')
+          component: () => import('@/components/tools/Encoding')
         }
       ]
     },
     {
       path: '/tools/markdown',
-      component: () => import(/* webpackChunkName: 'tools' */'@/components/tools/Markdown')
+      component: () => import('@/components/tools/Markdown')
     },
     {
       path: '/page/:url',
@@ -50,7 +50,7 @@ let router = new Router({
         {
           path: 'articles',
           component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Articles')
-        },{
+        }, {
           path: 'editor',
           component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Editor')
         }, {
@@ -63,7 +63,7 @@ let router = new Router({
           path: 'medias',
           component: () => import(/* webpackChunkName: 'manager' */'@/components/manager/Medias')
         }
-      ]      
+      ]
     }
   ]
 })
@@ -72,11 +72,10 @@ router.beforeEach(function (to, from, next) {
   store.commit('setTitle', '')
 
   if (/^\/manager/.test(to.fullPath) && !hasLogin()) {
-    next({path: '/login', query: {url: to.fullPath}})
+    next({ path: '/login', query: { url: to.fullPath } })
   } else {
     next()
   }
 })
-
 
 export default router
