@@ -2,8 +2,13 @@
   <div class="col-md-9 maincolumn">
     <div class="row my-3">
       <form class="form mx-auto">
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="" placeholder="标签搜索" v-model="tagname" @keydown.enter.prevent="doSearch">
+        <div class="form-group">
+          <div class="input-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" placeholder="标签搜索" v-model="tagname" @keydown.enter.prevent="doSearch">
+            <div class="input-group-append">
+              <button class="btn btn-info" type="button" @click="doSearch">标签搜索</button>
+            </div>
+          </div>
         </div>
       </form>
     </div>

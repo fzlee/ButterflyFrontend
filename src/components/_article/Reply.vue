@@ -29,8 +29,8 @@
         </div>
       </form>
       <div slot="modal-footer" class="w-100">
-        <button class="btn btn-raised btn-secondary float-right mx-1" @click="$refs.modalRef.hide()">关闭</button>
-        <button class="btn btn-raised float-right mx-1" :class="{'btn-secondary': isSubmitting, 'btn-info': !isSubmitting}" @click="submitComment">
+        <button class="btn btn-secondary float-right mx-1" @click="$refs.modalRef.hide()">关闭</button>
+        <button class="btn float-right mx-1" :class="{'btn-secondary': isSubmitting, 'btn-info': !isSubmitting}" @click="submitComment">
           <span v-if="!isSubmitting">提交</span>
           <span v-else>提交中...</span>
         </button>

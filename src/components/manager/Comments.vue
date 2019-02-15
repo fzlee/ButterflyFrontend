@@ -20,7 +20,7 @@
             <span v-if="comment.website"><a :href="comment.website">@</a></span>
           </td>
           <td><router-link :to="`/articles/${comment.page.url}`">{{comment.content}}</router-link></td>
-          <td><button class="btn btn-sm btn-raised btn-danger" type="button" @click="deleteComment(comment)">删除</button></td>
+          <td><button class="btn btn-sm btn-danger" type="button" @click="deleteComment(comment)">删除</button></td>
         </tr>
       </tbody>
     </table>

@@ -2,10 +2,10 @@
   <div class="pagination " style="width: 100%">
     <div class="btn-toolbar mb-2 mx-auto" role="toolbar">
       <div class="btn-group" role="group">
-        <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(1 - currentPage)">首页</button>
-        <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(-1)">上一页</button>
-        <button type="button" class="jump btn btn-raised btn-info" disabled>第{{currentPage}}页</button>
-        <button type="button" class="jump btn btn-raised btn-info" @click="jumpToPage(1)">下一页</button>
+        <button type="button" class="jump btn btn-info" @click="jumpToPage(1 - currentPage)">首页</button>
+        <button type="button" class="jump btn btn-info" @click="jumpToPage(-1)">上一页</button>
+        <button type="button" class="jump btn btn-info" disabled>第{{currentPage}}页</button>
+        <button type="button" class="jump btn btn-info" @click="jumpToPage(1)">下一页</button>
       </div>
     </div>
   </div>

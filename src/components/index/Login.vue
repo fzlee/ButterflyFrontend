@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <button class="btn btn-raised btn-info mx-auto" type="button" @click.prevent="doLogin">登录</button>
+            <button class="btn btn-info mx-auto" type="button" @click.prevent="doLogin">登录</button>
           </div>
         </form>
       </div>
