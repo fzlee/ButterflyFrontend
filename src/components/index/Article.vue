@@ -58,7 +58,6 @@ import { formatTime } from '@/utils/time'
 import { hasLogin } from '@/services/auth'
 import ArticleMixin from '@/mixins/ArticleMixin'
 import TuiEditor from 'tui-editor/dist/tui-editor-Viewer'
-// var Viewer = require('tui-editor/dist/tui-editor-Viewer');
 import Reply from '@/components/_article/Reply'
 
 function renderContent (content) {
