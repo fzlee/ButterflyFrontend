@@ -65,7 +65,7 @@ function routeTo (tag) {
   this.$router.push({
     path: '/search',
     query: {
-      tagname: encodeURIComponent(tag)
+      tagname: tag
     }
   })
 }
