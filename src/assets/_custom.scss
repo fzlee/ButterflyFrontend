@@ -1,0 +1,15 @@
+.general-shadow {
+  box-shadow:0 2px 2px #888;
+}
+
+.light-shadow {
+  box-shadow:0 2px 8px #ccc; 
+}
+
+.btn {
+  @extend .general-shadow;
+}
+
+img {
+  @extend .light-shadow;
+}

@@ -1,3 +1,5 @@
+const path = require('path')
+
 // vue.config.js
 module.exports = {
   lintOnSave: true,
@@ -19,5 +21,12 @@ module.exports = {
     config.module.rule('eslint').use('eslint-loader').options({
       fix: true
     })
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'bootstrap-components': path.resolve(__dirname, 'node_modules/bootstrap-vue/es/components')
+      }
+    }
   }
 }

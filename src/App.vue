@@ -2,7 +2,7 @@
   <div id="app">
     <div class="main-body">
       <navbar></navbar>
-      <div class="separator" style="padding-top:42px"></div>
+      <div class="separator" style="padding-top:40px"></div>
       <router-view></router-view>
     </div>
   </div>
