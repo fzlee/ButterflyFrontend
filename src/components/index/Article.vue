@@ -23,7 +23,7 @@
             </div>
           </div>
           <hr>
-          <div id="article-content"></div>
+          <div id="article-content" v-html="article.html"></div>
         </article>
         <hr>
         <div class="d-block-inline">
@@ -57,18 +57,19 @@
 import { formatTime } from '@/utils/time'
 import { hasLogin } from '@/services/auth'
 import ArticleMixin from '@/mixins/ArticleMixin'
-import TuiEditor from 'tui-editor/dist/tui-editor-Viewer'
+// import TuiEditor from 'tui-editor/dist/tui-editor-Viewer'
 import Reply from '@/components/_article/Reply'
 
 function renderContent (content) {
-  if (!this.editor) {
-    this.editor = new TuiEditor({
-      el: document.querySelector('#article-content'),
-      viewer: true,
-      initialValue: ''
-    })
-  }
-  this.editor.setMarkdown(content)
+  // if (!this.editor) {
+  //   this.editor = new TuiEditor({
+  //     el: document.querySelector('#article-content'),
+  //     viewer: true,
+  //     initialValue: ''
+  //   })
+  // }
+  // this.editor.setMarkdown(content)
+
 }
 
 function loadData () {

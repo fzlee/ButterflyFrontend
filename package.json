@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --report-json",
+    "build": "vue-cli-service build --report",
     "lint": "vue-cli-service lint",
     "push": "git push origin master",
     "deploy": "rsync -avz ./dist/ bwg.ifconfiger.com:/home/fzlee/Workspace/Frontend/butterfly"
@@ -14,10 +14,11 @@
     "bootstrap": "^4.2.1",
     "bootstrap-material-design": "^4.1.1",
     "bootstrap-vue": "^2.0.0-rc.12",
+    "css-loader": "^2.1.0",
     "dateformat": "^3.0.3",
     "js-cookie": "^2.2.0",
     "qrcode": "^1.2.2",
-    "tui-editor": "^1.3.0",
+    "tui-editor": "^1.3.1",
     "vue": "^2.5.22",
     "vue-analytics": "^5.16.0",
     "vue-router": "^3.0.1",

@@ -23,7 +23,10 @@ Vue.use(InputGroup)
 Vue.use(Router)
 Vue.use(VueAnalytics, {
   id: ['UA-39931077-2'],
-  router
+  router,
+  fields: {
+    siteSpeedSampleRate: 100
+  }
 })
 
 Vue.prototype.$http = http
