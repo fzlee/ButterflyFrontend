@@ -29,12 +29,6 @@ module.exports = {
         'bootstrap-components': path.resolve(__dirname, 'node_modules/bootstrap-vue/es/components')
         // 'highlight.js': path.resolve(__dirname, 'src/libs/highlight.js')
       }
-    },
-    plugins: [
-      new webpack.ContextReplacementPlugin(
-        /highlight\.js\/lib\/languages$/,
-        new RegExp(`^./(${['javascript', 'python', 'bash'].join('|')})$`),
-      ),
-    ]
+    }
   }
 }

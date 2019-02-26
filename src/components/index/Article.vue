@@ -54,11 +54,14 @@
 </template>
 
 <script>
+// code block highlight
 import { formatTime } from '@/utils/time'
 import { hasLogin } from '@/services/auth'
 import ArticleMixin from '@/mixins/ArticleMixin'
 import TuiEditor from 'tui-editor/dist/tui-editor-Viewer'
 import Reply from '@/components/_article/Reply'
+// require('tui-editor/dist/tui-editor-contents.css') // editor content
+require('highlight.js/styles/github.css')
 
 function renderContent (content) {
   if (!this.editor) {

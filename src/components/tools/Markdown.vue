@@ -7,8 +7,13 @@
 </template>
 
 <script>
+// code block highlight
 import TuiEditor from 'tui-editor'
 import 'tui-editor/dist/tui-editor-extScrollSync.js'
+require('codemirror/lib/codemirror.css') // codemirror
+require('tui-editor/dist/tui-editor.css') // editor ui
+require('tui-editor/dist/tui-editor-contents.css') // editor content
+require('highlight.js/styles/github.css')
 
 const content = [
   '![image](https://cloud.githubusercontent.com/assets/389021/16107646/9729e556-33d8-11e6-933f-5b09fa3a53bb.png)',
