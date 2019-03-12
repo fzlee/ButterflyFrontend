@@ -8,6 +8,7 @@
   @extend .card;
   @extend .shadow;
   @extend .card-body;
+  font-size: $font-size-sm;
 
   @media (max-width: $screen-sm-min) {
     margin: 1em 0;
@@ -101,6 +102,16 @@
   @extend .card;
   @extend .shadow;
   @extend .card-body;
+
+  font-weight: 300;
+  h1, h2, h3, h4, h5{
+    font-weight: 400
+  }
+  h1, h2, h3, h4, h5 {
+    a {
+      font-weight: 300
+    }
+  }
   
   @media (max-width: $screen-sm-min) {
     margin: 1em 0;
