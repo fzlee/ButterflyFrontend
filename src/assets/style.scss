@@ -10,6 +10,11 @@
 // customized styles
 body {
   background-color: #fafafa;
+  ::selection {
+    background: #F34069;
+    color: #fff;
+  }
+  
   .maincolumn {
     padding-left: 0;
     padding-right: 0;
