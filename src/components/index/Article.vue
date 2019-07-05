@@ -73,6 +73,7 @@ function renderContent (content) {
     })
   }
   this.editor.setMarkdown(content)
+  this.enableVideo()
 }
 
 function loadData () {
@@ -108,6 +109,14 @@ function getHostName () {
   return location.origin
 }
 
+function enableVideo () {
+  // bug fix for tui editor
+  let video = document.querySelector('video')
+  if (video) {
+    video.setAttribute('controls', 'enabled')
+  }
+}
+
 function decryptArticle () {
   const password = document.querySelector('#password').value
   this.$http.post(`/api/articles/${this.$route.params.url}/meta`, {
@@ -138,7 +147,8 @@ export default {
     renderContent,
     hasLogin,
     showReplyModal,
-    decryptArticle
+    decryptArticle,
+    enableVideo
   },
   mounted () {
     this.loadData()
