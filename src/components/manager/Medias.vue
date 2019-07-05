@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue2-dropzone ref="VueDropzoneRef" id="dropzone" :options="options">sss</vue2-dropzone>
+    <vue2-dropzone ref="VueDropzoneRef" id="dropzone" :options="options"></vue2-dropzone>
     <table class="table table-sm table-striped table-bordered">
       <thead>
         <tr>
@@ -75,7 +75,7 @@ export default {
       return {
         url: '/api/medias/upload',
         thumbnailWidth: 100,
-        maxFilesize: 1,
+        maxFilesize: 4,
         complete: this.loadData
       }
     }
