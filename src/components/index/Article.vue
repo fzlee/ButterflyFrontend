@@ -23,7 +23,9 @@
             </div>
           </div>
           <hr>
-          <div id="article-content" v-html="article.html"></div>
+          <!-- <div id="article-content" v-html="article.html"></div> -->
+          <div id="article-content"></div>
+
         </article>
         <hr>
         <div class="d-block-inline">
