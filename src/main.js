@@ -6,6 +6,7 @@ import App from './App.vue'
 import store from '@/vuex/store'
 import http from '@/services/http'
 import router from '@/router/index'
+import Ads from 'vue-google-adsense'
 
 // bootstrap components
 import { Modal, Nav, Navbar, Button, Form, FormInput, FormGroup, FormRadio, ButtonGroup, InputGroup } from 'bootstrap-vue/es/components/'
@@ -28,6 +29,12 @@ Vue.use(VueAnalytics, {
     siteSpeedSampleRate: 100
   }
 })
+
+Vue.use(require('vue-script2'))
+
+Vue.use(Ads.Adsense)
+Vue.use(Ads.InArticleAdsense)
+Vue.use(Ads.InFeedAdsense)
 
 Vue.prototype.$http = http
 Vue.config.productionTip = false
