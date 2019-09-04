@@ -34,7 +34,7 @@
 <script>
 import vue2Dropzone from 'vue2-dropzone'
 import { formatTime } from '@/utils/time'
-import 'vue2-dropzone/dist/vue2Dropzone.css'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function loadData () {
