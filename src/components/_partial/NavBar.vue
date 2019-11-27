@@ -13,7 +13,7 @@
             <b-dropdown-item to="/tools/encoding">编码</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item to="/manager/articles">
-            <span v-if="hasLogin()">Admin</span>
+            <span v-if="user">Admin</span>
             <span v-else>&nbsp;</span>
           </b-nav-item>
         </b-navbar-nav>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { hasLogin } from '@/services/auth'
+import { mapState } from 'vuex'
 
 function searchWithGoogle () {
   const query = `site:${location.host} ${this.searchContent}`
@@ -47,8 +47,13 @@ export default {
     }
   },
   methods: {
-    searchWithGoogle,
-    hasLogin
+    searchWithGoogle
+  },
+  computed: mapState({
+    user: state => state.user
+  }),
+  mounted () {
+    console.log(this.user)
   }
 }
 </script>

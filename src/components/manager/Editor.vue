@@ -113,7 +113,7 @@ function createEditor () {
   this.editor = new TuiEditor({
     el: document.querySelector('#editor'),
     initialEditType: this.editorType,
-    height: '500px',
+    height: '800px',
     previewStyle: 'vertical',
     initialValue: this.article ? this.article.content : '',
     exts: ['scrollSync']

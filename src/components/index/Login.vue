@@ -37,6 +37,8 @@ function doLogin () {
       password: password
     }).then((response) => {
     if (response.data.success === true) {
+      console.log(response.data.data)
+      this.$store.commit('USER_LOGGED', response.data.data)
       this.$router.push({
         path: this.$route.query.url || '/'
       })

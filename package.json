@@ -7,7 +7,7 @@
     "build": "vue-cli-service build --report",
     "lint": "vue-cli-service lint",
     "push": "git push origin master",
-    "deploy": "rsync -avz ./dist/ ali01.ifconfiger.xyz:/home/fzlee/Workspace/ButterflyFrontend/"
+    "deploy": "rsync -avz ./dist/ bwg.ifconfiger.com:/home/fzlee/Workspace/ButterflyFrontend/"
   },
   "dependencies": {
     "axios": "^0.18.1",
