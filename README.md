@@ -1,29 +1,6 @@
-# butterflyfrontend
+### butterflyfrontend
 
-## Project setup
-```
-npm install
-```
+基于Vue的个人博客， [https://ifconfiger.com](https://ifconfiger.com)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`1.0` 版本适配Django版的博客后端
+`2.0`版本适配GO版的博客后端
