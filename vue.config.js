@@ -26,8 +26,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        'bootstrap-components': path.resolve(__dirname, 'node_modules/bootstrap-vue/es/components')
-        // 'highlight.js': path.resolve(__dirname, 'src/libs/highlight.js')
+        'bootstrap-vue$': 'bootstrap-vue/src/index.js'
       }
     }
   }

@@ -2,31 +2,46 @@
   <div>
     <b-modal ref="modalRef" :title="generateTitle()">
       <form class="mx-2">
-        <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label">Email</label>
-           <div class="col-sm-10">
-             <input class="form-control" id="email" placeholder="邮箱不会被公开" v-model="email" :class="{ 'is-invalid': email.length === 0 }">
-           </div>
-        </div>
-        <div class="form-group row">
-          <label for="nickname" class="col-sm-2 col-form-label">昵称</label>
-           <div class="col-sm-10">
-             <input class="form-control" id="nickname" :class="{ 'is-invalid': nickname.length === 0 }" v-model="nickname">
-           </div>
-        </div>
-        <div class="form-group row">
-          <label for="website" class="col-sm-2 col-form-label">网站</label>
-           <div class="col-sm-10">
-             <input class="form-control" id="website" placeholder="网站不会被公开" v-model="website">
-           </div>
-        </div>
+        <ValidationObserver ref="observer" v-slot="{ invalid }">
+          <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <ValidationProvider name="email" v-slot="v" rules="required|email">
+                <input class="form-control" id="email" placeholder="邮箱不会被公开" v-model="email" :class="{'is-invalid': v.errors.length}">
+                <p class="text-danger">{{ v.errors[0] }}</p>
+              </ValidationProvider>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nickname" class="col-sm-2 col-form-label">昵称</label>
+            <div class="col-sm-10">
+              <ValidationProvider name="昵称" v-slot="v" rules="required|min:1">
+                <input class="form-control" id="nickname" v-model="nickname" :class="{'is-invalid': v.errors.length}">
+                <p class="text-danger">{{ v.errors[0] }}</p>
+              </ValidationProvider>
+            </div>
 
-        <div class="form-group row">
-          <label for="content" class="col-sm-2 col-form-label">内容</label>
-           <div class="col-sm-10">
-             <textarea class="form-control" id="content" placeholder="200字以内"></textarea>
-           </div>
-        </div>
+          </div>
+          <div class="form-group row">
+            <label for="website" class="col-sm-2 col-form-label">网站</label>
+            <div class="col-sm-10">
+              <ValidationProvider name="网址" v-slot="v" :rules="{regex: /^https?:\/\//}">
+                <input class="form-control" id="website" v-model="website" :class="{'is-invalid': v.errors.length}">
+                <p class="text-danger">{{ v.errors[0] }}</p>
+              </ValidationProvider>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="content" class="col-sm-2 col-form-label">内容</label>
+            <div class="col-sm-10">
+              <ValidationProvider name="网址" v-slot="v" rules="required|min:1">
+                <textarea class="form-control" id="content" placeholder="200字以内" v-model="content" :class="{'is-invalid': v.errors.length}"></textarea>
+                <p class="text-danger">{{ v.errors[0] }}</p>
+              </ValidationProvider>
+            </div>
+          </div>
+        </ValidationObserver>
       </form>
       <div slot="modal-footer" class="w-100">
         <button class="btn btn-secondary float-right mx-1" @click="$refs.modalRef.hide()">关闭</button>
@@ -72,10 +87,12 @@ function validateForm () {
   return this.nickname.length > 0 && this.email.length > 0
 }
 
-function submitComment () {
-  if (!this.validateForm() || this.isSubmitting) {
+async function submitComment () {
+  const isValid = await this.$refs.observer.validate()
+  if (!isValid || this.isSubmitting) {
     return
   }
+
   this.isSubmitting = true
 
   const url = this.$route.params.url
@@ -84,7 +101,7 @@ function submitComment () {
     nickname: this.nickname,
     email: this.email,
     website: this.website,
-    content: document.querySelector('#content').value,
+    content: this.content,
     comment_id: this.comment ? this.comment.id : null
   }
 
@@ -92,6 +109,8 @@ function submitComment () {
     this.$emit('refreshComments')
     this.$refs.modalRef.hide()
     this.saveData()
+    this.isSubmitting = false
+  }, () => {
     this.isSubmitting = false
   })
 }
@@ -104,6 +123,7 @@ export default {
       nickname: '',
       website: '',
       email: '',
+      content: '',
       isSubmitting: false
     }
   },

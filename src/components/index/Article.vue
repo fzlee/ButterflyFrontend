@@ -23,8 +23,9 @@
             </div>
           </div>
           <hr>
-          <!-- <div id="article-content" v-html="article.html"></div> -->
-          <div id="article-content"></div>
+          <viewer
+            :value="editor.content"
+          />
 
         </article>
         <hr>
@@ -60,19 +61,12 @@
 import { formatTime } from '@/utils/time'
 import { hasLogin } from '@/services/auth'
 import ArticleMixin from '@/mixins/ArticleMixin'
-import TuiEditor from 'tui-editor/dist/tui-editor-Viewer'
 import Reply from '@/components/_article/Reply'
+import { Viewer } from '@toast-ui/vue-editor'
 require('highlight.js/styles/github.css')
 
 function renderContent (content) {
-  if (!this.editor) {
-    this.editor = new TuiEditor({
-      el: document.querySelector('#article-content'),
-      viewer: true,
-      initialValue: ''
-    })
-  }
-  this.editor.setMarkdown(content)
+  this.editor.content = content
   this.enableVideo()
 }
 
@@ -135,7 +129,10 @@ export default {
       'tags': [],
       'comments': '',
       'url': this.$route.params.url,
-      editor: null
+      editor: {
+        value: '',
+        mode: 'markdown'
+      }
     }
   },
   mixins: [ArticleMixin],
@@ -154,7 +151,8 @@ export default {
     this.loadData()
   },
   components: {
-    Reply
+    Reply,
+    Viewer
   },
   watch: {
     '$route.params.url': function () {

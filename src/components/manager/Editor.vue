@@ -62,23 +62,21 @@
 
     <div class="row mx-2">
       <div class="edit-article" style="width: 100%;">
-          <div id="editor">
-
-          </div>
+          <tui-editor
+            ref="tuiEditor"
+            height="500px"
+            :value="editor.value"
+            previewStyle="vertical"
+            :mode="editor.mode"
+            :options="editor.options"
+          />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// code block highlight
-
-import TuiEditor from 'tui-editor'
-import 'tui-editor/dist/tui-editor-extScrollSync.js'
-// require('codemirror/lib/codemirror.css') // codemirror
-// require('tui-editor/dist/tui-editor.css') // editor ui
-// require('tui-editor/dist/tui-editor-contents.css') // editor content
-// require('highlight.js/styles/github.css')
+import { Editor } from '@toast-ui/vue-editor'
 
 function initEditor () {
   if (this.$route.query.url) {
@@ -95,30 +93,10 @@ function initEditor () {
       this.passwordGroup.value = this.article.need_key
       this.passwordGroup = Object.assign({}, this.passwordGroup)
 
-      this.createEditor()
+      this.editor.value = this.article.content
+      this.editor.mode = this.article.editor === 'markdown' ? 'markdown' : 'wysiwyg'
     })
-  } else {
-    this.createEditor()
   }
-}
-
-function createEditor () {
-  if (this.editor) {
-    return
-  }
-
-  if (this.article && this.article.editor === 'html') {
-    this.editorType = 'wysiwyg'
-  }
-
-  this.editor = new TuiEditor({
-    el: document.querySelector('#editor'),
-    initialEditType: this.editorType,
-    height: '800px',
-    previewStyle: 'vertical',
-    initialValue: this.article ? this.article.content : '',
-    exts: ['scrollSync']
-  })
 }
 
 function changeDropdown (group, menu) {
@@ -141,7 +119,7 @@ function saveArticle () {
   this.article.allow_comment = this.commentGroup.value
   this.article.is_original = this.originalGroup.value
   this.article.editor = 'markdown'
-  this.article.content = this.editor.getMarkdown()
+  this.article.content = this.$refs.tuiEditor.invoke('getMarkdown')
 
   if (!this.article.content.trim()) {
     return
@@ -189,7 +167,6 @@ function checkURLInPlace () {
   }).then((response) => {
     if (response.data.data.in_place) {
       this.errors.url = false
-      console.log(this.errors['url'] === false ? false : null)
     } else {
       this.errors.url = null
     }
@@ -204,14 +181,20 @@ function autoSave () {
 export default {
   name: 'editor',
   components: {
+    'tui-editor': Editor
   },
   data () {
     return {
       article: {},
-      editor: null,
-      editorType: 'markdown',
+      editor: {
+        mode: 'markdown',
+        value: '',
+        options: {
+          usageStatistics: false,
+          exts: ['scrollSync']
+        }
+      },
       timer: null,
-      options: {},
       errors: {
         url: null
       },
@@ -278,7 +261,6 @@ export default {
   },
   methods: {
     initEditor,
-    createEditor,
     changeDropdown,
     getGroupDisplay,
     saveArticle,

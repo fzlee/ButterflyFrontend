@@ -77,7 +77,6 @@ function deleteLink (link) {
   }
 
   this.$http.delete(`/api/links/${link.id}/`).then(() => {
-    console.log('dddddddddddddddddddd')
     this.loadData()
   })
 }
