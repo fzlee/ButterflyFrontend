@@ -79,9 +79,9 @@ function renderContent (content) {
 function loadData () {
   let url = this.$route.params.url
   if (this.$route.query.is_preview === 'true') {
-    url = `/api/articles/${url}`
+    url = `/api/articles/${url}/`
   } else {
-    url = `/api/articles/${url}/meta`
+    url = `/api/articles/${url}/meta/`
   }
 
   this.$http.get(url).then((response) => {
@@ -92,7 +92,7 @@ function loadData () {
     this.$store.commit('setTitle', this.article.title)
   })
 
-  this.$http.get(`/api/articles/${this.$route.params.url}/comments`).then((response) => {
+  this.$http.get(`/api/articles/${this.$route.params.url}/comments/`).then((response) => {
     this.comments = response.data.data
   })
 }
@@ -119,7 +119,7 @@ function enableVideo () {
 
 function decryptArticle () {
   const password = document.querySelector('#password').value
-  this.$http.post(`/api/articles/${this.$route.params.url}/meta`, {
+  this.$http.post(`/api/articles/${this.$route.params.url}/meta/`, {
     password: password
   }).then((response) => {
     this.article = response.data.data

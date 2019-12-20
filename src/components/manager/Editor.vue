@@ -14,7 +14,8 @@
         <b-form-input
           v-model="article.url"
           v-on:blur.native="checkURLInPlace" name="url"
-          :class="{ 'is-invalid': errors.has('url')}"></b-form-input>
+          :state="errors.url == false ? false : null"
+        ></b-form-input>
       </b-input-group>
       <b-input-group>
         <b-input-group-prepend>
@@ -81,7 +82,7 @@ import 'tui-editor/dist/tui-editor-extScrollSync.js'
 
 function initEditor () {
   if (this.$route.query.url) {
-    this.$http.get(`/api/articles/${this.$route.query.url}`).then((response) => {
+    this.$http.get(`/api/articles/${this.$route.query.url}/`).then((response) => {
       response.data.data.tags = this.stripTags(response.data.data.tags)
       this.article = response.data.data
       this.displayGroup.value = this.article.allow_visit
@@ -142,8 +143,14 @@ function saveArticle () {
   this.article.editor = 'markdown'
   this.article.content = this.editor.getMarkdown()
 
-  if (this.errors.size > 0) {
+  if (!this.article.content.trim()) {
     return
+  }
+
+  for (let i in this.errors) {
+    if (this.errors[i] === false) {
+      return
+    }
   }
 
   if (!this.article.url) {
@@ -152,7 +159,7 @@ function saveArticle () {
 
   let content = Object.assign({}, this.article)
 
-  this.$http.put('/api/articles/save', content).then((response) => {
+  this.$http.put('/api/articles/save/', content).then((response) => {
     const article = response.data.data
     if (!this.article.id) {
       this.article.id = article.id
@@ -172,15 +179,19 @@ function stripTags (tags) {
 }
 
 function checkURLInPlace () {
+  if (!this.article.url) {
+    return
+  }
   // url 没有改变， 不检查
-  this.$http.post('/api/articles/in_place', {
+  this.$http.post('/api/articles-inplace/', {
     url: this.article.url,
     article_id: this.article.id
   }).then((response) => {
     if (response.data.data.in_place) {
-      this.errors.add('url')
+      this.errors.url = false
+      console.log(this.errors['url'] === false ? false : null)
     } else {
-      this.errors.delete('url')
+      this.errors.url = null
     }
     return response.data.data.in_place
   })
@@ -201,7 +212,9 @@ export default {
       editorType: 'markdown',
       timer: null,
       options: {},
-      errors: new Set(),
+      errors: {
+        url: null
+      },
       displayGroup: {
         value: false,
         menus: [

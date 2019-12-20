@@ -31,13 +31,12 @@ import { showFailedAlert } from '@/utils/alert'
 function doLogin () {
   const username = document.querySelector('#username').value
   const password = document.querySelector('#password').value
-  this.$http.post('/api/login',
+  this.$http.post('/api/login/',
     {
       username: username,
       password: password
     }).then((response) => {
     if (response.data.success === true) {
-      console.log(response.data.data)
       this.$store.commit('USER_LOGGED', response.data.data)
       this.$router.push({
         path: this.$route.query.url || '/'

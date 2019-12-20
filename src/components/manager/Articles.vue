@@ -45,7 +45,7 @@ import Pagination from '@/components/_partial/Pagination.vue'
 import { formatTime } from '@/utils/time'
 
 function loadData () {
-  this.$http.get(`/api/articles?page=${this.$route.query.page || 1}`).then((response) => {
+  this.$http.get(`/api/articles/?page=${this.$route.query.page || 1}`).then((response) => {
     this.articles = response.data.data
   })
 }
@@ -56,8 +56,8 @@ function deleteArticle (article) {
     return
   }
 
-  this.$http.delete(`/api/articles/${article.url}`).then(() => {
-    location.reload()
+  this.$http.delete(`/api/articles/${article.url}/`).then(() => {
+    this.loadData()
   })
 }
 

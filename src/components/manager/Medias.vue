@@ -38,7 +38,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function loadData () {
-  this.$http.get(`/api/medias?page=${this.$route.query.page || 1}`).then((response) => {
+  this.$http.get(`/api/medias/?page=${this.$route.query.page || 1}`).then((response) => {
     this.medias = response.data.data
   })
 }
@@ -51,7 +51,7 @@ function bytesToSize (bytes) {
 }
 
 function deleteMedia (media) {
-  this.$http.delete(`/api/medias/${media.id}`).then(() => {
+  this.$http.delete(`/api/medias/${media.id}/`).then(() => {
     this.loadData()
   })
 }
@@ -73,7 +73,7 @@ export default {
   computed: {
     options: function () {
       return {
-        url: '/api/medias/upload',
+        url: '/api/medias/upload/',
         thumbnailWidth: 100,
         maxFilesize: 4,
         complete: this.loadData

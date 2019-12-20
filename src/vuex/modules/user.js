@@ -41,7 +41,6 @@ const mutations = {
   },
 
   [types.USER_LOGGED] (state, user = {}) {
-    console.log('ssssssssssssssssssssssss')
     if (Object.keys(user).length > 0) {
       Vue.set(state, 'user', user)
       Vue.set(state, 'isAuthorized', true)

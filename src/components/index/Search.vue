@@ -35,7 +35,7 @@ function doSearch () {
   }
   this.articles = []
 
-  const url = `/api/articles/search?tagname=${encodeURIComponent(this.tagname)}&page=${this.$route.query.page || 1}`
+  const url = `/api/articles-search/?tagname=${encodeURIComponent(this.tagname)}&page=${this.$route.query.page || 1}`
   this.$http.get(url).then((response) => {
     this.articles = response.data.data
   })

@@ -88,7 +88,7 @@ function submitComment () {
     comment_id: this.comment ? this.comment.id : null
   }
 
-  this.$http.post(`/api/articles/${url}/comments`, data).then(() => {
+  this.$http.post(`/api/articles/${url}/comments/`, data).then(() => {
     this.$emit('refreshComments')
     this.$refs.modalRef.hide()
     this.saveData()

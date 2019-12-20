@@ -53,7 +53,7 @@
 import { formatTime } from '@/utils/time'
 
 function loadData () {
-  this.$http.get('/api/articles/sidebar').then((response) => {
+  this.$http.get('/api/articles-sidebar/').then((response) => {
     this.tags = response.data.data.tags
     this.comments = response.data.data.comments
     this.links = response.data.data.links

@@ -65,7 +65,7 @@ import { formatTime } from '@/utils/time'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function loadData () {
-  this.$http.get(`/api/links?page=${this.$route.query.page || 1}`).then((response) => {
+  this.$http.get(`/api/links/?page=${this.$route.query.page || 1}`).then((response) => {
     this.links = response.data.data
   })
 }
@@ -76,13 +76,14 @@ function deleteLink (link) {
     return
   }
 
-  this.$http.delete(`/api/links/${link.id}`).then(() => {
+  this.$http.delete(`/api/links/${link.id}/`).then(() => {
+    console.log('dddddddddddddddddddd')
     this.loadData()
   })
 }
 
 function toggleLink (link) {
-  this.$http.put(`/api/links/${link.id}`,
+  this.$http.put(`/api/links/${link.id}/`,
     {
       display: !link.display
     }).then(() => {
@@ -96,7 +97,7 @@ function createLink () {
     description: document.querySelector('#description').value,
     href: document.querySelector('#href').value
   }
-  this.$http.post('/api/links', data).then(() => {
+  this.$http.post('/api/links/', data).then(() => {
     this.loadData()
   })
 }

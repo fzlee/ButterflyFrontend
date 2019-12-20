@@ -17,7 +17,7 @@
           <td>{{comment.ip}}</td>
           <td nowrap>{{formatTime(comment.create_time)}}</td>
           <td>
-            <span v-if="comment.website"><a :href="comment.website">@</a></span>
+            <span v-if="comment.website"><a :href="comment.website">{{comment.website}}</a></span>
           </td>
           <td><router-link :to="`/articles/${comment.page.url}`">{{comment.content}}</router-link></td>
           <td><button class="btn btn-sm btn-danger" type="button" @click="deleteComment(comment)">删除</button></td>
@@ -38,7 +38,7 @@ import { formatTime } from '@/utils/time'
 import Pagination from '@/components/_partial/Pagination.vue'
 
 function loadData () {
-  this.$http.get(`/api/comments?page=${this.$route.query.page || 1}`).then((response) => {
+  this.$http.get(`/api/comments/?page=${this.$route.query.page || 1}`).then((response) => {
     this.comments = response.data.data
   })
 }
