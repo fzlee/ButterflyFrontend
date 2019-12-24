@@ -63,7 +63,6 @@ import { hasLogin } from '@/services/auth'
 import ArticleMixin from '@/mixins/ArticleMixin'
 import Reply from '@/components/_article/Reply'
 import { Viewer } from '@toast-ui/vue-editor'
-require('highlight.js/styles/github.css')
 
 function renderContent (content) {
   this.editor.content = content

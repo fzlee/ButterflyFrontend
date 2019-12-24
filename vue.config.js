@@ -24,10 +24,6 @@ module.exports = {
     })
   },
   configureWebpack: {
-    resolve: {
-      alias: {
-        'bootstrap-vue$': 'bootstrap-vue/src/index.js'
-      }
-    }
+    
   }
 }

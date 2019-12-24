@@ -57,20 +57,7 @@ export default {
 }
 </script>
 
-<style>
-@import '../../../node_modules/codemirror/lib/codemirror.css';
-@import '../../../node_modules/tui-editor/dist/tui-editor.min.css';
-@import '../../../node_modules/tui-editor/dist/tui-editor-contents.min.css';
-@import '../../../node_modules/highlight.js/styles/github.css';
-
-.tui-editor-contents {
-  font-size: 1rem;
-}
-
-.te-md-container .CodeMirror {
-  font-size: 1rem;
-}
-
+<style type="scss" scoped>
 .navbar {
   z-index:10
 }
@@ -78,5 +65,4 @@ export default {
 .navbar-dark .navbar-brand {
   color: #fff;
 }
-
 </style>
