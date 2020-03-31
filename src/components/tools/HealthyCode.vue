@@ -84,9 +84,9 @@ export default {
     this.name = this.$route.query.name || ''
     this.city = this.$route.query.city || ''
     this.needInfo = !(this.name && this.city)
-    // this.timer = setInterval(() => {
-    //   this.now = new Date()
-    // }, 1000)
+    this.timer = setInterval(() => {
+      this.now = new Date()
+    }, 1000)
     this.$store.commit('HIDE_NAVBAR')
     this.$nextTick(() => {
       this.drawQRCode(this.content)
