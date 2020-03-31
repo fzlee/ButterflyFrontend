@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="dark" fixed="top" style="background:#347eff" class="shadow">
+    <b-navbar  v-if="showNav" toggleable="md" type="dark" fixed="top" style="background:#347eff" class="shadow">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand to="/">{{ brand_name }}</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
@@ -11,6 +11,7 @@
             <b-dropdown-item to="/tools/qrcode">二维码</b-dropdown-item>
             <b-dropdown-item to="/tools/markdown">Markdown</b-dropdown-item>
             <b-dropdown-item to="/tools/encoding">编码</b-dropdown-item>
+            <b-dropdown-item to="/tools/healthycode">健康码</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item to="/manager/articles">
             <span v-if="user">Admin</span>
@@ -50,7 +51,8 @@ export default {
     searchWithGoogle
   },
   computed: mapState({
-    user: state => state.user
+    user: state => state.user,
+    showNav: state => state.navbar.showNav
   }),
   mounted () {
   }

@@ -40,6 +40,10 @@ let router = new Router({
       component: () => import('@/components/tools/Markdown')
     },
     {
+      path: '/tools/healthycode',
+      component: () => import('@/components/tools/HealthyCode')
+    },
+    {
       path: '/page/:url',
       redirect: '/articles/:url'
     },
