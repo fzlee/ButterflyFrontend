@@ -43,7 +43,7 @@
 
           <div class="footer2 light">
             <p>服务热线: 0571-12345-6 <br>
-              本服务由杭州市人民政府提供
+              本服务由{{city}}人民政府提供
             </p>
             <p><span style="font-weight: bold" class="dark">中文</span> / <a href="#">English</a></p>
           </div>
@@ -88,9 +88,6 @@ export default {
       this.now = new Date()
     }, 1000)
     this.$store.commit('HIDE_NAVBAR')
-    this.$nextTick(() => {
-      this.drawQRCode(this.content)
-    })
   },
 
   destroyed () {
