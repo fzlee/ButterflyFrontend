@@ -128,7 +128,9 @@ export default {
   },
   watch: {
     needInfo (val) {
-      this.drawQRCode()
+      this.$nextTick(() => {
+        this.drawQRCode()
+      })
     }
   }
 }
