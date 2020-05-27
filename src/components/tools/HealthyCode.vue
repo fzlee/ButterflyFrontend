@@ -7,8 +7,8 @@
         </div>
         <div class="bigblock">
           <div class="inner">
-            <h1 style="text-align:center">{{date}}</h1>
-            <h1 style="text-align:center">{{time}}</h1>
+            <h1 style="text-align:center; font-size: 56px; font-weight: bold">{{date}}</h1>
+            <h1 style="text-align:center; font-size: 56px; font-weight: bold">{{time}}</h1>
             <hr/>
 
             <div>
@@ -23,8 +23,12 @@
             <div class="qrcode">
               <canvas id="canvas" class="mx-auto mt-3"></canvas>
             </div>
+            <div class="green-desc">
+              本码支持医疗机构挂号、就诊及医保结算,直接出示扫码使用
+            </div>
+
             <div class="desc">
-              绿码: 凭此码可在浙江省范围内通行, 请主动出示,
+              绿码: 凭此码可在{{province}}范围内通行, 请主动出示,
               配合检查; 并自身防护工作,码颜色将根据您的申报由当地政府按照相关政策动态更新,
               出行前请仔细检查您的健康码
             </div>
@@ -35,6 +39,8 @@
               <a href="#" class="a">我去就医</a>
             </div>
           </div>
+
+          <button class="my-button">健康应用</button>
           <div class="footer">
             <p>依托全国一体化政务服务平台 <br> 开展跨省市(区, 市)数据共享和互通认证 </p>
 
@@ -55,6 +61,9 @@
           <b-input-group prepend="请输入姓名" class="mt-3">
             <b-form-input v-model="name"></b-form-input>
           </b-input-group>
+          <b-input-group prepend="请输入省份" class="mt-3">
+            <b-form-input v-model="province"></b-form-input>
+          </b-input-group>
           <b-input-group prepend="请输入城市" class="mt-3">
             <b-form-input v-model="city"></b-form-input>
           </b-input-group>
@@ -73,6 +82,7 @@ import QRCode from 'qrcode'
 export default {
   data () {
     return {
+      province: '',
       city: '',
       name: '',
       needInfo: true,
@@ -83,7 +93,8 @@ export default {
   mounted () {
     this.name = this.$route.query.name || ''
     this.city = this.$route.query.city || ''
-    this.needInfo = !(this.name && this.city)
+    this.province = this.$route.query.city || ''
+    this.needInfo = !(this.name && this.city && this.province)
     this.timer = setInterval(() => {
       this.now = new Date()
     }, 1000)
@@ -109,7 +120,7 @@ export default {
         scale: 5,
         width: '200',
         color: {
-          dark: '#6cb167',
+          dark: '#55ab6c',
           light: '#ffffff'
         }
       })
@@ -145,7 +156,7 @@ export default {
   .green {
     min-width: 100%;
     min-height: 160px;
-    background-color: #6cb167;
+    background-color: #55ab6c;
   }
 }
 
@@ -183,16 +194,24 @@ export default {
   #canvas {
     border-width: 5px;
     border-style: solid;
-    border-color: #6cb167;
+    border-color: #55ab6c;
     padding: 0;
     margin: 1rem auto;
     display: block;
   }
 }
 
-.desc {
+.green-desc {
+  color: #55ab6c;
   font-size: 14px;
-  padding: 0 10px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 40px;
+}
+
+.desc {
+  font-size: 12px;
+  padding: 0 26px;
   text-align: center
 }
 
@@ -204,5 +223,19 @@ export default {
 }
 .dark {
   color: #444;
+}
+
+.my-button{
+  background-color: #448ef7;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  margin: 10px 0 0 0;
+  width: 100%;
+  border-radius: 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
 }
 </style>
