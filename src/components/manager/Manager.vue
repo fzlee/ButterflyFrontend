@@ -11,7 +11,7 @@
             <b-nav-item to="/manager/editor">编辑文章</b-nav-item>
             <b-nav-item to="/manager/comments">评论</b-nav-item>
             <b-nav-item to="/manager/links">链接</b-nav-item>
-            <b-nav-item to="/manager/medias">文件</b-nav-item>
+            <b-nav-item :target="($route.path==='/manager/articles' || $route.path==='/manager/editor') ? '_blank': ''" to="/manager/medias">文件</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
