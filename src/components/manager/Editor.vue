@@ -142,6 +142,10 @@ function saveArticle () {
     if (!this.article.id) {
       this.article.id = article.id
     }
+
+    if (!this.$route.query.url) {
+      this.$router.push({ query: { url: article.url } })
+    }
   })
 }
 
